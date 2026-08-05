@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 393.57 393.57">
+  <!-- Generator: Adobe Illustrator 30.6.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 27)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #0f4c82;
+      }
+
+      .st1 {
+        fill: #57dfa6;
+      }
+    </style>
+  </defs>
+  <circle class="st1" cx="196.78" cy="196.78" r="196.78"/>
+  <g>
+    <g>
+      <rect class="st0" x="87.07" y="136.1" width="218.81" height="53.65" rx="10.4" ry="10.4"/>
+      <rect class="st0" x="169.65" y="162.92" width="53.65" height="168.76" rx="10.4" ry="10.4"/>
+      <rect class="st0" x="169.65" y="61.88" width="53.65" height="62.1" rx="10.4" ry="10.4"/>
+    </g>
+    <g>
+      <rect class="st0" x="247.51" y="85.3" width="38.22" height="28.28" rx="4.41" ry="4.41" transform="translate(7.77 217.65) rotate(-45)"/>
+      <rect class="st0" x="112.19" y="80.34" width="28.28" height="38.22" rx="4.41" ry="4.41" transform="translate(-33.32 118.46) rotate(-45)"/>
+    </g>
+    <g>
+      <rect class="st0" x="113.99" y="213.44" width="38.22" height="28.28" rx="4.41" ry="4.41" transform="translate(-121.94 160.77) rotate(-45)"/>
+      <rect class="st0" x="245.71" y="208.47" width="28.28" height="38.22" rx="4.41" ry="4.41" transform="translate(-84.81 250.4) rotate(-45)"/>
+    </g>
+  </g>
+</svg>
