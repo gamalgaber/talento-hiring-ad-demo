@@ -1,0 +1,384 @@
+{
+  "nav": {
+    "cta": "Book a Demo"
+  },
+  "hero": {
+    "eyebrow": "Technical recruitment in the region",
+    "titlePrefix": "Build your technical team in",
+    "titleHighlight": "one week.",
+    "subheading": "Skip weeks of sourcing. Get a shortlist of vetted, ready-to-hire technical candidates from across the region — free of charge.",
+    "ctaPrimary": "Book a free consultation",
+    "ctaSecondary": "How it works",
+    "trustedLabel": "Trusted by 55+ companies across the region"
+  },
+  "growingLibrary": {
+    "heading": "A growing network of",
+    "professionals": "8,850+ professionals",
+    "clients": "55+ companies",
+    "countries": "6 countries"
+  },
+  "productDemo": {
+    "playAria": "Play video",
+    "pauseAria": "Pause video"
+  },
+  "leadForm": {
+    "subtitle": "Free Hiring Consultation",
+    "title": "Tell us about the role.\nGet qualified candidates in 5 days.",
+    "companyName": "Company Name",
+    "companyNamePlaceholder": "TechCorp",
+    "email": "Email Address",
+    "emailPlaceholder": "john@company.com",
+    "position": "Position Required",
+    "positionPlaceholder": "Select a role…",
+    "country": "Target Country",
+    "countryPlaceholder": "Select a country…",
+    "submit": "Start Hiring Now",
+    "submitting": "Sending…",
+    "trustText": "Free • No Obligation • Customized Hiring Plan in Just 15 Minutes",
+    "successTitle": "Request sent",
+    "successDesc": "We'll be in touch within one business day.",
+    "errorTitle": "Couldn't send your request",
+    "errorDescDefault": "Please try again.",
+    "requiredError": "Required",
+    "emailError": "Enter a valid email",
+    "roleError": "Select a role",
+    "countryError": "Select a country"
+  },
+  "roles": {
+    "frontend": "React / Frontend Developer",
+    "backend": "Backend Developer",
+    "fullstack": "Full Stack Developer",
+    "devops": "DevOps / Cloud Engineer",
+    "mobile": "Mobile Developer",
+    "uiux": "UI/UX Designer",
+    "data": "Data Engineer",
+    "other": "Other"
+  },
+  "countries": {
+    "egypt": "Egypt",
+    "uae": "United Arab Emirates",
+    "saudi": "Saudi Arabia",
+    "kuwait": "Kuwait",
+    "bahrain": "Bahrain",
+    "qatar": "Qatar",
+    "jordan": "Jordan",
+    "other": "Other"
+  },
+  "stats": {
+    "professionals": "Professionals in our network",
+    "firstBatch": "First batch of candidates",
+    "satisfaction": "Customer satisfaction",
+    "clients": "Clients",
+    "daysSuffix": " days"
+  },
+  "featureShowcase": {
+    "heading": "Everything you need to build your team, in one place",
+    "cta": {
+      "primary": "Book a free consultation"
+    },
+    "panels": {
+      "sourcing": {
+        "eyebrow": "Sourcing",
+        "titlePrefix": "Reach the best talent across the",
+        "titleHighlight": "Middle East and North Africa",
+        "description": "Search a vetted, ready-to-hire pool across Egypt, the UAE, Saudi Arabia, and more. Filter by skill, seniority, and availability in seconds.",
+        "secondaryCta": "Explore our talent pool",
+        "highlights": {
+          "h1": {
+            "stat": "48 hours",
+            "text": "average time to your first shortlist once search criteria are set."
+          },
+          "h2": {
+            "stat": "200+",
+            "text": "vetted specialists ready to interview this week."
+          },
+          "h3": {
+            "stat": "6",
+            "text": "countries covered across the MENA region."
+          }
+        }
+      },
+      "matching": {
+        "eyebrow": "Matching",
+        "titlePrefix": "Every candidate scored against",
+        "titleHighlight": "your exact requirements",
+        "description": "Our team matches skills, seniority, and culture fit before any resume reaches your inbox, so every profile you see is worth your time.",
+        "secondaryCta": "See how matching works",
+        "highlights": {
+          "h1": {
+            "stat": "3-5 days",
+            "text": "to receive your first matched shortlist."
+          },
+          "h2": {
+            "stat": "1 manager",
+            "text": "dedicated to your role from search to signed offer."
+          },
+          "h3": {
+            "stat": "100%",
+            "text": "of profiles pre-screened against your job spec."
+          }
+        }
+      },
+      "vetting": {
+        "eyebrow": "Vetting",
+        "titlePrefix": "Technical interviews run by",
+        "titleHighlight": "real subject-matter experts",
+        "description": "Every shortlisted candidate goes through a specialized technical interview, not a keyword scan, with a full report attached to their profile.",
+        "secondaryCta": "See our vetting process",
+        "highlights": {
+          "h1": {
+            "stat": "1 report",
+            "text": "delivered per candidate covering skills, communication, and fit."
+          },
+          "h2": {
+            "stat": "Live",
+            "text": "technical interviews conducted by specialists in the field."
+          },
+          "h3": {
+            "stat": "0",
+            "text": "resumes forwarded without a completed technical review."
+          }
+        }
+      },
+      "guarantee": {
+        "eyebrow": "Guarantee",
+        "titlePrefix": "No upfront fees, no",
+        "titleHighlight": "risk until you hire",
+        "description": "The service stays free until employment is confirmed. If a hire doesn't work out within the guarantee period, we replace them at no extra cost.",
+        "secondaryCta": "Read the guarantee terms",
+        "highlights": {
+          "h1": {
+            "stat": "$0",
+            "text": "setup fees or prior commitment required to start."
+          },
+          "h2": {
+            "stat": "Free",
+            "text": "replacement if a placement doesn't work out."
+          },
+          "h3": {
+            "stat": "94%",
+            "text": "customer satisfaction across completed placements."
+          }
+        }
+      }
+    }
+  },
+  "whyUs": {
+    "heading": "We are not a \ntraditional recruitment agency",
+    "cards": {
+      "speed": {
+        "title": "Unmatched speed",
+        "text": "The first batch of candidates will be selected within 3 to 5 days, not weeks, with a clear hiring process from the outset."
+      },
+      "coverage": {
+        "title": "Full coverage of the Middle East and North Africa region",
+        "text": "Candidates from Egypt, the UAE, Saudi Arabia, Jordan, and other countries, for work remotely or from the office."
+      },
+      "culture": {
+        "title": "Cultural suitability",
+        "text": "We assess personal skills and compatibility with your company culture, not just the technical tools used."
+      },
+      "noFees": {
+        "title": "No upfront fees",
+        "text": "The service is free until actual employment is completed, with no setup fees or prior commitment."
+      },
+      "manager": {
+        "title": "Dedicated Account Manager",
+        "text": "One person will follow up with you from beginning to end and understand your company's needs, instead of dealing with a different employee each time."
+      },
+      "evaluation": {
+        "title": "Real technical evaluation",
+        "text": "It is not just a process of sorting through resumes; technical experts conduct a specialized technical interview with a full report on each candidate."
+      }
+    }
+  },
+  "fiveStages": {
+    "heading": "Six stages guarantee you the right candidate from the first time",
+    "subheading": "A tried and tested hiring process, refined over hundreds of successful placements across the region.",
+    "cta": "Book a free consultation",
+    "stages": {
+      "discovery": {
+        "eyebrow": "Step 1 — Discovery",
+        "title": "Understanding employment needs",
+        "text": "We begin by thoroughly understanding the job requirements: technical skills, experience level, and work culture. This step takes only 15 minutes."
+      },
+      "sourcing": {
+        "eyebrow": "Step 2 — Sourcing",
+        "title": "Attracting candidates from our network",
+        "text": "We sift through more than 8,850 technical professionals in our network, and select the one best suited to your specific requirements."
+      },
+      "screening": {
+        "eyebrow": "Step 3 — Screening",
+        "title": "Comparing profiles",
+        "text": "Each candidate is assessed according to job criteria — technical aspect, experience, and sector — before their file reaches you."
+      },
+      "interviews": {
+        "eyebrow": "Step 4 — Interviews",
+        "title": "HR Interview and Technical Interview",
+        "text": "Specialized interviews to assess professional background and compatibility with your company culture."
+      },
+      "reporting": {
+        "eyebrow": "Step 5 — Reporting",
+        "title": "Full report and presentation",
+        "text": "Detailed reports with evaluation results and clear recommendations; all that remains is for you to choose and approve."
+      },
+      "guarantee": {
+        "eyebrow": "Step 6 — Guarantee",
+        "title": "Replacement guarantee",
+        "text": "If the candidate is not suitable during the trial period, we will replace him immediately at no additional cost."
+      }
+    }
+  },
+  "comparison": {
+    "heading": "Talento vs. traditional \nrecruitment agencies",
+    "featureHeader": "Feature",
+    "talento": "Talento",
+    "agencies": "Traditional agencies",
+    "platforms": "LinkedIn / Hiring platforms",
+    "rows": {
+      "speed": "Speed of finding candidates",
+      "quality": "Quality of assessment",
+      "payment": "Fixed payment",
+      "guarantee": "Replacement guarantee",
+      "specialization": "Specialization in tech"
+    }
+  },
+  "testimonials": {
+    "heading": "Companies that have dealt with us and seen results",
+    "items": {
+      "hatem": {
+        "name": "Hatem Azab",
+        "role": "Vice Chairman at",
+        "company": "Nexora Tech",
+        "quote": "Talento doesn't just send us employees—they are true partners who understand the regional tech market. The quality of the candidates they provided was outstanding."
+      },
+      "abdulaziz": {
+        "name": "Abdulaziz Al-Muqbi",
+        "role": "VP Solutions at",
+        "company": "GEOTech",
+        "quote": "The team you provided has performed exceptionally well. Other departments noticed our experience with Talento and are now eager to work with you too—that's the clearest proof of your success."
+      },
+      "khalid": {
+        "name": "Khalid Al-Kathiri",
+        "role": "HR Operations Manager at",
+        "company": "Vantix",
+        "quote": "We've worked with many recruitment agencies, but our experience with Talento has been different. The quality of candidates has always been exceptional—it feels like having an entire team without the administrative burden."
+      }
+    }
+  },
+  "completeTeam": {
+    "eyebrow": "Real Results",
+    "heading": "A complete technical team in a week",
+    "text": "GEOTech needed to quickly build a distributed technical team in Egypt and Saudi Arabia. Talento delivered the first batch of qualified candidates within 5 days, along with complete technical reports for each candidate.",
+    "cta": "Book a free consultation",
+    "badgeCompany": "GEOTech",
+    "badgeCta": "Know more",
+    "pills": {
+      "expansion": {
+        "value": "3x",
+        "label": "Team\nexpansion"
+      },
+      "qualified": {
+        "value": "100%",
+        "label": "Qualified\ncandidates"
+      },
+      "days": {
+        "value": "5",
+        "label": "Days for the\nfirst batch"
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQs",
+    "heading": "FAQs about Technical Recruitment",
+    "browseAll": "Browse all FAQs",
+    "items": {
+      "duration": {
+        "q": "How long does the hiring process take?",
+        "a": "Most roles get a first batch of qualified candidates within 3–5 business days from kickoff, with a full hire typically closed within one to two weeks depending on interview scheduling."
+      },
+      "fees": {
+        "q": "Are there any setup fees?",
+        "a": "No. There are no subscription, monthly, or setup fees — you only pay once a candidate is actually hired."
+      },
+      "plan": {
+        "q": "How long does it take to prepare a hiring plan?",
+        "a": "We put together a customized hiring plan within 15 minutes of your initial consultation call, based on the role, seniority, and budget you share with us."
+      },
+      "guarantee": {
+        "q": "Is there a guarantee if the candidate isn't the right fit?",
+        "a": "Yes — every placement comes with a replacement guarantee. If a hire doesn't work out within the guarantee period, we source a replacement at no additional cost."
+      },
+      "roles": {
+        "q": "Which technical roles do you recruit for?",
+        "a": "Frontend, backend, full-stack, mobile, DevOps/cloud, data engineering, UI/UX design, and QA — across seniority levels, for remote or on-site roles throughout the MENA region."
+      }
+    }
+  },
+  "pricing": {
+    "eyebrow": "Simple pricing",
+    "heading": "You only pay when you hire",
+    "subheading": "No retainers, no setup fees, no surprises. One transparent price, paid only once your new hire starts.",
+    "planLabel": "Pay per hire",
+    "priceText": "One month's salary",
+    "subtext": "No subscriptions, monthly fees, or setup fees.",
+    "cta": "Book a free consultation",
+    "bullets": {
+      "noUpfront": "No upfront cost, no monthly retainer",
+      "noFee": "Zero fee for the technical and HR evaluation process",
+      "guarantee": "Free replacement guarantee if the candidate isn't the right fit",
+      "fixed": "Fixed pricing agreed before you start hiring"
+    }
+  },
+  "ctaBand": {
+    "heading": "Are you ready to build a",
+    "headingHighlight": "Tech Team?",
+    "subtext": "First batch of eligible candidates ready in just 3–5 days. Free and without obligation.",
+    "ctaPrimary": "Speak to the sales team",
+    "ctaSecondary": "Book a free consultation"
+  },
+  "finalCta": {
+    "heading": "Take the first step toward building your dream team.",
+    "text": "Tell us what you need — our team will follow up within one business day with a tailored plan.",
+    "formSubtitle": "Get started",
+    "formTitle": "Book Your Free Consultation",
+    "formSubmit": "Take the free consultation"
+  },
+  "logoGrid": {
+    "heading": "Trusted across the region",
+    "ctaTitle": "Join 55+ companies hiring their technical teams with Talento",
+    "cta": "Book a demo",
+    "logoAlt": "Client logo {n}"
+  },
+  "footer": {
+    "excited": "Excited? Us too. Let's get moving.",
+    "getPlan": "Get a free hiring plan",
+    "badge": "Talento",
+    "copyright": "All rights reserved.",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "formFullName": "Full Name",
+    "formFullNamePlaceholder": "Your name",
+    "formEmail": "Company email",
+    "formEmailPlaceholder": "you@company.com",
+    "formRole": "Role you're hiring for",
+    "formRolePlaceholder": "Select a role…",
+    "formCountry": "Country",
+    "formCountryPlaceholder": "Select a country…",
+    "formSubmit": "Get my free hiring plan",
+    "formSubmitting": "Sending…",
+    "formSuccessTitle": "Thanks for reaching out",
+    "formSuccessDesc": "We'll be in touch within one business day.",
+    "formErrorTitle": "Couldn't send your request",
+    "formErrorDefault": "Please try again.",
+    "formRequiredError": "Required",
+    "formEmailError": "Enter a valid email",
+    "formRoleError": "Select a role",
+    "formCountryError": "Select a country"
+  },
+  "joinUs": {
+    "title": "Looking for your next role?",
+    "description": "Join Talento's talent network and get matched with vetted companies across the region.",
+    "cta": "Join Us"
+  }
+}
