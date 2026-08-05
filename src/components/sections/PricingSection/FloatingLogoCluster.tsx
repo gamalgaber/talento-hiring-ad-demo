@@ -24,10 +24,14 @@ const FLOATING_LOGOS = Array.from({ length: LOGO_COUNT }, (_, i) => {
   const file = `Artboard ${i + 1}.svg`;
   const angle = (i / LOGO_COUNT) * Math.PI * 2;
 
-  const size = Math.round(72 + pseudoRandom(i * 13 + 5) * 108); // 72–180px
-  // Bigger icons sit further from center so they don't swallow the card.
-  const baseRadius = 30 + pseudoRandom(i * 7 + 3) * 18; // 30–48% of container
-  const radius = baseRadius + (size - 72) / 8;
+  const size = Math.round((90 + pseudoRandom(i * 13 + 5) * 100) * 3); // 270–570px (3x)
+  // The card sits inset from the container edge by a fixed amount at every
+  // breakpoint (see PricingSection's inset-8/14/16), which keeps the card's
+  // own edge at a near-constant ~40% radius from center regardless of
+  // viewport — so a tight 36–44% band rings the logos right along that
+  // edge, matching the reference (icons framing the card border) instead
+  // of scattering deep into the container.
+  const radius = 36 + pseudoRandom(i * 7 + 3) * 8;
 
   const top = 50 + Math.sin(angle) * radius;
   const left = 50 + Math.cos(angle) * radius;
@@ -53,10 +57,18 @@ function FloatingLogo({
   z: number;
   index: number;
 }) {
+  // clamp() instead of a Tailwind breakpoint: shrinks logos on narrow
+  // viewports (min bound) without fighting Framer's own inline `transform`
+  // on the same element (a responsive Tailwind scale-* class would just get
+  // overwritten by the animation's transform). Visible at every breakpoint
+  // now — this used to be hidden below sm, which is why they never showed
+  // up on mobile.
+  const clampedSize = `clamp(${Math.round(size * 0.5)}px, 48vw, ${size}px)`;
+
   return (
     <motion.div
-      className="absolute hidden sm:block"
-      style={{ top, left, width: size, height: size, zIndex: z }}
+      className="absolute"
+      style={{ top, left, width: clampedSize, height: clampedSize, zIndex: z }}
       initial={{ opacity: 0, scale: 0.6, rotate: 0 }}
       whileInView={{ opacity: 1, scale: 1, rotate }}
       viewport={{ once: true, margin: "-40px" }}
