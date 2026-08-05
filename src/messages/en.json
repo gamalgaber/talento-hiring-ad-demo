@@ -3,7 +3,6 @@
     "cta": "Book a Demo"
   },
   "hero": {
-    "eyebrow": "Technical recruitment in the region",
     "titlePrefix": "Build your technical team in",
     "titleHighlight": "one week.",
     "subheading": "Skip weeks of sourcing. Get a shortlist of vetted, ready-to-hire technical candidates from across the region — free of charge.",
@@ -332,7 +331,7 @@
   },
   "ctaBand": {
     "heading": "Are you ready to build a",
-    "headingHighlight": "Tech Team?",
+    "headingHighlight": "\nTech Team?",
     "subtext": "First batch of eligible candidates ready in just 3–5 days. Free and without obligation.",
     "ctaPrimary": "Speak to the sales team",
     "ctaSecondary": "Book a free consultation"
