@@ -1,0 +1,33 @@
+/* Ported from reactbits.dev/components/scroll-stack, tuned for embedding
+   as one section on a normal page (useWindowScroll mode) rather than a
+   dedicated full-page demo — smaller top/bottom runway, taller/richer cards. */
+
+.scroll-stack-scroller {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.scroll-stack-inner {
+  padding: 4rem 1.25rem 22rem;
+}
+
+.scroll-stack-card {
+  transform-origin: top center;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  min-height: 26rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.scroll-stack-end {
+  width: 100%;
+  height: 1px;
+}
