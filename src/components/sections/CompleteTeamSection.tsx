@@ -13,7 +13,7 @@ export default function CompleteTeamSection() {
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-      <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2 border border-talento-border rounded-2xl shadow-sm">
+      <div className="grid grid-cols-1 items-center gap-2 lg:gap-6 lg:grid-cols-2 border border-talento-border rounded-2xl shadow-sm">
         <Reveal className=" p-6">
           <div className="relative overflow-hidden rounded-2xl">
             <Image
@@ -24,10 +24,10 @@ export default function CompleteTeamSection() {
               sizes="(min-width: 1024px) 640px, 100vw"
               className="h-auto w-full object-cover"
             />
-            <div className="absolute inset-x-4 bottom-4 grid lg:grid-cols-3 grid-cols-1 gap-1.5">
+            <div className="absolute inset-x-0 lg:inset-x-4 bottom-0 lg:bottom-4 grid lg:grid-cols-3 grid-cols-3 gap-1.5">
               {PILL_KEYS.map((key) => (
-                <div key={key} className="min-w-30 rounded-xl bg-talento-primary px-5 py-4">
-                  <h4 className="text-talento-green text-2xl font-extrabold">
+                <div key={key} className="min-w-28 lg:min-w-30 rounded-xl bg-talento-primary pl-4 pr-0 py-2 lg:px-5 lg:py-4">
+                  <h4 className="text-talento-green text-lg lg:text-2xl font-extrabold">
                     {t(`pills.${key}.value`)}
                   </h4>
                   <p className="mt-1 whitespace-pre-line text-xs font-medium text-white">
