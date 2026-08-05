@@ -1,26 +1,672 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-gotham);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-gotham);
+  --font-gotham: var(--font-gotham);
+  --font-rosebay: var(--font-rosebay);
+  --font-pingar: var(--font-pingar);
+
+  /* Talento brand palette — usable as bg-talento-primary, text-talento-green, etc. */
+  --color-talento-primary: var(--talento-primary);
+  --color-talento-primary-dark: var(--talento-primary-dark);
+  --color-talento-primary-light: var(--talento-primary-light);
+  --color-talento-primary-50: var(--talento-primary-50);
+  --color-talento-green: var(--talento-green);
+  --color-talento-green-dark: var(--talento-green-dark);
+  --color-talento-green-100: var(--talento-green-100);
+  --color-talento-orange: var(--talento-orange);
+  --color-talento-dark: var(--talento-dark);
+  --color-talento-muted: var(--talento-muted);
+  --color-talento-border: var(--talento-border);
+  --color-talento-grey-background: var(--talento-grey-background);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* ---- Talento brand tokens (source of truth, mirrors the WP theme's style.css) ---- */
+  --talento-primary: #0f4c82;
+  --talento-primary-dark: #0a3660;
+  --talento-primary-light: #b0d7ff;
+  --talento-primary-50: #eff5fb;
+  --talento-green: #57dfa6;
+  --talento-green-dark: #2bca85;
+  --talento-green-100: #c0f0dc;
+  --talento-orange: #f75c03;
+  --talento-dark: #1e293b;
+  --talento-muted: #6b7280;
+  --talento-border: #e2e8f0;
+  --talento-grey-background: #F9F9F9;
+  --talento-white: #ffffff;
+
+  --background: oklch(1 0 0);
+  --foreground: var(--talento-dark);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--talento-dark);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--talento-dark);
+  --primary: var(--talento-primary);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: var(--talento-green);
+  --secondary-foreground: var(--talento-dark);
+  --muted: var(--talento-primary-50);
+  --muted-foreground: var(--talento-muted);
+  --accent: var(--talento-primary-50);
+  --accent-foreground: var(--talento-primary);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--talento-border);
+  --input: var(--talento-border);
+  --ring: var(--talento-primary-light);
+  --radius: 0.875rem;
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    @apply font-sans;
+  }
+
+  /* ---- Typography system ---- */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.6px;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  body,
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  @media (min-width: 640px) {
+    h1 {
+      font-size: 40px;
+    }
+
+    h2 {
+      font-size: 28px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 48px;
+    }
+
+    h2 {
+      font-size: 32px;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Arabic pages — swap body + heading font to PingAR (set dir="rtl" on <html>) */
+[dir="rtl"] {
+  --font-sans: var(--font-pingar);
+  --font-heading: var(--font-pingar);
+}
+
+/* ============================================================
+   LOGO GRID — exact port of .talento-lgrid from the WP theme's
+   css/talento-sections.css. 6-col grid, CTA spans rows 3-4/cols 3-4,
+   31 logos (odd) — last cell hidden, second-to-last spans 2 cols.
+   ============================================================ */
+
+.talento-lgrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-flow: dense;
+  border: 1px solid var(--talento-border);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.talento-lgrid__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid var(--talento-border);
+  min-height: 100px;
+}
+
+.talento-lgrid__cell img {
+  max-width: 300px !important;
+  max-height: 80px !important;
+  width: 200px !important;
+  height: auto !important;
+  object-fit: cover;
+  display: block;
+}
+
+.talento-lgrid__cta {
+  grid-column: 3 / 5;
+  grid-row: 3 / 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  padding: 32px 28px;
+  text-align: center;
+  border: 1px solid var(--talento-border);
+}
+
+.talento-lgrid__cta-title {
+  font-family: var(--font-gotham);
+  font-size: clamp(16px, 1.4vw, 28px);
+  font-weight: 600;
+  color: var(--talento-primary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* .talento-lgrid>.talento-lgrid__cell:last-child {
+  display: none;
+} */
+
+/* .talento-lgrid>.talento-lgrid__cell:nth-last-child(2) {
+  grid-column: span 1;
+  border-right: none;
+} */
+
+@media (max-width: 768px) {
+  .talento-lgrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .talento-lgrid__cta {
+    grid-column: 1 / 4;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .talento-lgrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .talento-lgrid__cta {
+    grid-column: 1 / 3;
+    grid-row: auto;
+  }
+}
+
+/* ============================================================
+   TESTIMONIALS VERTICAL MARQUEE — exact port of the WP theme's
+   theme-customizations/hiring-ad/style.css .tha-marquee-* block.
+   HTML: 3× .tha-marquee-col, each with one .tha-marquee-track
+   containing N .tha-t-card items. JS (TestimonialsMarquee.tsx)
+   clones the track's children to double the content, then sets
+   --tha-shift = -trackHeight and adds .is-ready to start the loop.
+   ============================================================ */
+
+.tha-marquee-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  overflow: hidden;
+  position: relative;
+  height: 620px;
+}
+
+.tha-marquee-section::before,
+.tha-marquee-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 18%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.tha-marquee-section::before {
+  top: 0;
+  background: linear-gradient(to bottom, var(--color-talento-primary-50) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.tha-marquee-section::after {
+  bottom: 0;
+  background: linear-gradient(to top, var(--color-talento-primary-50) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.tha-marquee-col {
+  overflow: hidden;
+  position: relative;
+  min-width: 0;
+}
+
+/* Middle column scrolls opposite direction — left/right go up, middle goes down */
+.tha-marquee-col:nth-child(2) .tha-marquee-track.is-ready {
+  animation-direction: reverse;
+}
+
+.tha-marquee-track {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  visibility: hidden;
+}
+
+.tha-marquee-track.is-ready {
+  visibility: visible;
+  animation: tha-marquee-up var(--tha-duration, 32s) linear infinite;
+}
+
+@keyframes tha-marquee-up {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(var(--tha-shift, -50%));
+  }
+}
+
+.tha-marquee-col--offset .tha-marquee-track {
+  margin-top: -140px;
+}
+
+.tha-t-card {
+  background: #ffffff;
+  border: 1px solid var(--talento-border);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.tha-t-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tha-t-card__avatar {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #333;
+}
+
+.tha-t-card__name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--talento-dark);
+  line-height: 1.3;
+}
+
+.tha-t-card__role {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--talento-muted);
+  line-height: 1.3;
+}
+
+.tha-t-card__role strong {
+  color: var(--talento-dark);
+  font-weight: 600;
+}
+
+.tha-t-card__quote {
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  color: var(--talento-muted);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .tha-marquee-section {
+    grid-template-columns: repeat(2, 1fr);
+    height: 560px;
+    padding: 60px 20px;
+    gap: 16px;
+  }
+
+  .tha-marquee-col:nth-child(3) {
+    display: none;
+  }
+}
+
+/* ============================================================
+   WHY-US CARD SWIPER — exact port of the WP theme's
+   theme-customizations/why-talento/style.css .talento-why-* block.
+   ============================================================ */
+
+
+
+/* ── Swiper wrapper ───────────────────────────── */
+.talento-slider-horizontal {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.talento-why-swiper {
+  width: 100%;
+  overflow: visible !important;
+  padding: 0 !important;
+  position: relative;
+}
+
+.talento-why-swiper::before,
+.talento-why-swiper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.talento-why-swiper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--talento-primary-50) 10%, rgba(239, 245, 251, 0) 100%) !important;
+}
+
+.talento-why-swiper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--talento-primary-50) 10%, rgba(239, 245, 251, 0) 100%) !important;
+}
+
+.talento-why-swiper .swiper-wrapper {
+  align-items: center;
+}
+
+/* ── Slides ───────────────────────────────────── */
+.talento-why-swiper .swiper-slide {
+  width: 500px;
+  opacity: 0.45;
+  transform: scale(0.78) !important;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  cursor: pointer;
+}
+
+.talento-why-swiper .swiper-slide-active {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.talento-why-swiper .swiper-slide-prev,
+.talento-why-swiper .swiper-slide-next {
+  opacity: 0.6 !important;
+  transform: scale(0.82) !important;
+}
+
+/* ── Card ─────────────────────────────────────── */
+.talento-why-card {
+  background: var(--talento-white);
+  width: 100%;
+  border: 0.5px solid var(--talento-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.talento-why-card-top {
+  background-color: var(--talento-white);
+  z-index: 2;
+  position: relative;
+  border-radius: var(--radius-lg);
+}
+
+.talento-why-card-bar {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1px;
+  display: flex;
+  padding: 24px;
+  border-bottom: .5px solid var(--talento-border);
+}
+
+.talento-why-card-header {
+  margin: 0 !important;
+  text-align: center;
+  color: var(--talento-primary);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.talento-why-card-content {
+  text-align: center;
+  padding: 24px 32px;
+  overflow: hidden;
+}
+
+.talento-why-card-text {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  color: var(--talento-dark);
+  margin: 0 !important;
+}
+
+.talento-why-card-bottom {
+  margin-top: -2rem;
+  padding-top: 44%;
+  position: relative;
+}
+
+.talento-why-card-bottom img {
+  object-fit: cover;
+  width: 100%;
+  height: 100% !important;
+  position: absolute;
+  inset: 0%;
+}
+
+.talento-why-nav {
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+/* Nav button visuals — exact port of theme-customizations/_shared/style.css
+   .talento-nav-btn / .talento-why-prev / .talento-why-next block. */
+.talento-why-prev,
+.talento-why-next {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border: 1px solid var(--talento-border);
+  border-radius: var(--radius-lg);
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.talento-why-prev:hover,
+.talento-why-next:hover {
+  background-color: var(--talento-white);
+  border-color: rgba(15, 76, 130, 0.3);
+}
+
+.talento-why-prev svg,
+.talento-why-next svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--talento-dark);
+  transition: color 0.18s ease;
+  display: block;
+  pointer-events: none;
+}
+
+.talento-why-prev:hover svg,
+.talento-why-next:hover svg {
+  color: var(--talento-primary);
+}
+
+/* Swiper auto-reverses slide traversal direction under dir="rtl" (it reads
+   the container's computed CSS direction), so "next" now moves the deck the
+   opposite visual way — mirror the chevrons so prev/next still point the
+   way the deck actually moves. */
+[dir="rtl"] .talento-why-prev svg,
+[dir="rtl"] .talento-why-next svg {
+  transform: scaleX(-1);
+}
+
+.talento-why-prev.swiper-button-disabled,
+.talento-why-next.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ── Mobile ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .talento-why-swiper .swiper-slide {
+    width: 380px;
+  }
+}
+
+@media (max-width:580px) {
+
+  .talento-why-swiper::before,
+  .talento-why-swiper::after {
+    display: none;
+  }
 }
