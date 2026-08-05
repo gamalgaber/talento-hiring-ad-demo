@@ -13,7 +13,7 @@ const LOGOS = Array.from({ length: LOGO_COUNT }, (_, i) => `Artboard ${i + 1}.sv
 
 function TrustedLogos({ label }: { label: string }) {
   return (
-    <div className="relative mt-30 w-full max-w-[95%] rounded-2xl border border-talento-border bg-white pt-4 pb-4">
+    <div className="relative mt-10 w-full max-w-full lg:max-w-[95%] rounded-2xl border border-talento-border lg:mt-30 bg-white pt-4 pb-4">
       <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap bg-white px-4 text-sm font-medium text-talento-muted">
         {label}
       </span>
@@ -39,7 +39,7 @@ export default function Hero() {
   const tForm = useTranslations("leadForm");
 
   return (
-    <section className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-0 px-4 pb-10 pt-24 sm:px-6 lg:grid-cols-2">
+    <section className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-5 lg:gap-0 px-4 pb-5 lg:pb-10 pt-16 lg:pt-24 sm:px-6 lg:grid-cols-2">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -47,10 +47,10 @@ export default function Hero() {
       >
         <div className="flex flex-col justify-start items-start gap-6">
           <div className="flex flex-col justify-start items-start gap-5">
-            <h1 className="text-balance text-talento-primary">
+            <h1 className="text-balance whitespace-pre-line text-talento-primary">
               {t("titlePrefix")} <span className="text-talento-orange">{t("titleHighlight")}</span>
             </h1>
-            <p className="max-w-md text-lg font-normal text-talento-muted">{t("subheading")}</p>
+            <p className="max-w-xl lg:max-w-md text-lg font-normal text-talento-muted">{t("subheading")}</p>
           </div>
 
           <div className="flex flex-wrap gap-3">

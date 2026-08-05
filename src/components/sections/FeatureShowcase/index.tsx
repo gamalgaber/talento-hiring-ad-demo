@@ -12,9 +12,9 @@ export default function FeatureShowcase() {
 
   return (
     <section id="how-it-works" className="mx-auto max-w-7xl scroll-mt-24">
-      <div className="py-16">
+      <div className="pt-16 pb-0 md:pb-10 lg:pt-16 lg:pb-16">
         <Reveal className="mx-auto mb-8 max-w-2xl px-6 text-center">
-          <h2 className="text-balance text-talento-primary">{t("heading")}</h2>
+          <h2 className="text-balance whitespace-pre-line text-talento-primary">{t("heading")}</h2>
         </Reveal>
 
         <ScrollStack

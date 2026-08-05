@@ -55,7 +55,7 @@ export default async function Footer() {
             </p>
           </Link>
 
-          <div className="flex w-full flex-col items-center gap-6 rounded-2xl bg-talento-grey-background p-6 sm:p-8 lg:w-3/5">
+          <div className="flex w-full flex-col items-center gap-6 rounded-2xl bg-talento-grey-background p-4 sm:p-8 lg:w-3/5">
             <div className="w-full">
               <FooterForm />
             </div>

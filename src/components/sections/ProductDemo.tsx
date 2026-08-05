@@ -29,13 +29,13 @@ export default function ProductDemo() {
   };
 
   return (
-    <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
+    <section className="mx-auto max-w-7xl px-4 pb-5 lg:pb-16 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="rounded-[32px] bg-talento-grey-background p-3 sm:p-6 "
+        className="rounded-[32px] bg-talento-grey-background p-3 sm:p-4 "
       >
         <div className="group relative overflow-hidden rounded-[24px] border border-talento-border bg-white shadow-[0_20px_60px_-20px_rgba(15,76,130,0.2)]">
           <video

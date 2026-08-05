@@ -96,7 +96,7 @@ export default function TestimonialsMarquee() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="py-16">
           <Reveal className="mx-auto mb-12 max-w-2xl px-6 text-center">
-            <h2 className="text-talento-primary">{t("heading")}</h2>
+            <h2 className="text-talento-primary whitespace-pre-line">{t("heading")}</h2>
           </Reveal>
 
           <div className="tha-marquee-section" ref={sectionRef}>

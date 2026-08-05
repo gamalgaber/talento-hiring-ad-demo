@@ -23,7 +23,7 @@ export default function Header() {
             alt="Talento"
             width={160}
             height={160}
-            className="h-10 w-auto sm:h-14"
+            className="h-10 w-auto lg:h-14"
           />
         </Link>
 
