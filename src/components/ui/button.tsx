@@ -11,7 +11,7 @@ const buttonVariants = cva(
         default:
           "bg-talento-primary text-white hover:bg-talento-primary hover:-translate-y-[5px] hover:shadow-[0_5px_0_0_var(--talento-green)] active:!-translate-y-[3px] active:shadow-[0_3px_0_0_var(--talento-green)] active:duration-75",
         outline:
-          "border-talento-green bg-white text-talento-dark hover:border-talento-green hover:-translate-y-[5px] hover:shadow-[0_5px_0_0_var(--talento-green-100)] active:!-translate-y-[3px] active:shadow-[0_3px_0_0_var(--talento-green-100)] active:duration-75",
+          "!border-talento-green bg-white text-talento-dark hover:border-talento-green hover:-translate-y-[5px] hover:shadow-[0_5px_0_0_var(--talento-green-100)] active:!-translate-y-[3px] active:shadow-[0_3px_0_0_var(--talento-green-100)] active:duration-75",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost:
