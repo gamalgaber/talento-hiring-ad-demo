@@ -30,7 +30,7 @@ export default function ComparisonTable() {
 
   return (
     <section className="mx-auto max-w-7xl pt-0 pb-16 lg:py-16">
-      <Reveal className="mx-auto mb-8 max-w-2xl px-6 text-left rtl:text-right lg:text-center">
+      <Reveal className="mx-auto mb-8 max-w-2xl px-6 text-left rtl:lg:text-center rtl:text-right lg:text-center">
         <h2 className="text-talento-primary lg:whitespace-break-spaces">{t("heading")}</h2>
       </Reveal>
 
@@ -46,7 +46,7 @@ export default function ComparisonTable() {
             <p className="mb-3 text-sm font-semibold text-talento-dark">{t(`rows.${row.key}`)}</p>
             <div className="grid grid-cols-3 gap-2">
               <div className="flex flex-col items-center justify-center gap-2.5 rounded-lg bg-talento-primary py-2.5">
-                <span className="text-[14px] font-bold font-rosebay tracking-wide text-white">{t("talento")}</span>
+                <span className="text-[14px] font-bold font-rosebay! tracking-wide text-white">{t("talento")}</span>
                 <Mark ok={row.talento} />
               </div>
               <div className="flex flex-col items-center justify-center gap-2.5  rounded-lg bg-talento-grey-background py-2.5 px-1.5">
@@ -72,7 +72,7 @@ export default function ComparisonTable() {
                     {t("featureHeader")}
                   </th>
                   <th className="bg-talento-primary p-3 text-center sm:p-5">
-                    <span className="font-rosebay text-sm font-bold text-white sm:text-base">{t("talento")}</span>
+                    <span className="font-rosebay! text-sm font-bold text-white sm:text-base">{t("talento")}</span>
                   </th>
                   <th className="p-3 text-center bg-[#E2E8F0] font-semibold text-talento-muted sm:p-5">{t("agencies")}</th>
                   <th className="p-3 text-center bg-[#E2E8F0] font-semibold text-talento-muted sm:p-5">{t("platforms")}</th>

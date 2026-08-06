@@ -94,7 +94,7 @@ export default function TestimonialsMarquee() {
   return (
     <section className="bg-talento-primary-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
-        <Reveal className="mx-auto mb-12 max-w-2xl px-6 text-left rtl:text-right lg:text-center">
+        <Reveal className="mx-auto mb-12 max-w-2xl px-6 text-left rtl:lg:text-center rtl:text-right lg:text-center">
           <h2 className="text-talento-primary lg:whitespace-pre-line">{t("heading")}</h2>
         </Reveal>
 
