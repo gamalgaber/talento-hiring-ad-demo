@@ -50,7 +50,7 @@ export default async function Footer() {
               height={200}
               className="h-14 w-14 sm:h-20 sm:w-20 lg:h-24 lg:w-24"
             />
-            <p className="font-rosebay text-4xl text-white sm:text-5xl lg:text-7xl">
+            <p className="font-rosebay! rtl:font-rosebay text-4xl text-white sm:text-5xl lg:text-7xl">
               {t("badge")}
             </p>
           </Link>

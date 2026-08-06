@@ -93,33 +93,31 @@ export default function TestimonialsMarquee() {
 
   return (
     <section className="bg-talento-primary-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="py-16">
-          <Reveal className="mx-auto mb-12 max-w-2xl px-6 text-center">
-            <h2 className="text-talento-primary whitespace-pre-line">{t("heading")}</h2>
-          </Reveal>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
+        <Reveal className="mx-auto mb-12 max-w-2xl px-6 text-center">
+          <h2 className="text-talento-primary whitespace-pre-line">{t("heading")}</h2>
+        </Reveal>
 
-          <div className="tha-marquee-section" ref={sectionRef}>
-            {columns.map((col) => (
-              <div
-                key={col}
-                className={col === 2 ? "tha-marquee-col tha-marquee-col--offset" : "tha-marquee-col"}
-              >
-                <div className="tha-marquee-track">
-                  {TESTIMONIAL_KEYS.map((key) => (
-                    <TCard
-                      key={`col${col}-${key}`}
-                      avatar="/assets/images/avatar.avif"
-                      name={t(`items.${key}.name`)}
-                      role={t(`items.${key}.role`)}
-                      company={t(`items.${key}.company`)}
-                      quote={t(`items.${key}.quote`)}
-                    />
-                  ))}
-                </div>
+        <div className="tha-marquee-section" ref={sectionRef}>
+          {columns.map((col) => (
+            <div
+              key={col}
+              className={col === 2 ? "tha-marquee-col tha-marquee-col--offset" : "tha-marquee-col"}
+            >
+              <div className="tha-marquee-track">
+                {TESTIMONIAL_KEYS.map((key) => (
+                  <TCard
+                    key={`col${col}-${key}`}
+                    avatar="/assets/images/avatar.avif"
+                    name={t(`items.${key}.name`)}
+                    role={t(`items.${key}.role`)}
+                    company={t(`items.${key}.company`)}
+                    quote={t(`items.${key}.quote`)}
+                  />
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

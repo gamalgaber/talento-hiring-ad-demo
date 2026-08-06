@@ -39,19 +39,17 @@ export default function StatsBand() {
   ];
 
   return (
-    <section className="pb-16">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="overflow-hidden rounded-2xl border border-talento-border bg-white">
-          <div className="flex flex-col divide-y divide-talento-border sm:flex-row sm:divide-x sm:divide-y-0">
-            {STATS.map((stat, i) => (
-              <Reveal key={stat.label} delay={i * 0.08} className={`flex flex-col flex-1 justify-between items-center lg:items-start p-6 sm:p-6 ${stat.background}`}>
-                <p className="text-sm font-medium text-talento-dark order-2 lg:order-1">{stat.label}</p>
-                <div className="font-heading mt-0 lg:mt-4 text-3xl font-extrabold text-talento-primary order-1 lg:order-2 sm:text-4xl">
-                  <Counter value={stat.value} suffix={stat.suffix} />
-                </div>
-              </Reveal>
-            ))}
-          </div>
+    <section className="pb-16 mx-auto max-w-7xl px-4 sm:px-6">
+      <div className="overflow-hidden rounded-2xl border border-talento-border bg-white">
+        <div className="flex flex-col divide-y divide-talento-border sm:flex-row sm:divide-x sm:divide-y-0">
+          {STATS.map((stat, i) => (
+            <Reveal key={stat.label} delay={i * 0.08} className={`flex flex-col flex-1 justify-between items-center md:items-start md:gap-2 lg:gap-0 p-6 sm:p-6 ${stat.background}`}>
+              <p className="text-sm font-medium text-talento-dark order-2 lg:order-1">{stat.label}</p>
+              <div className="font-heading mt-0 lg:mt-4 text-3xl font-extrabold text-talento-primary order-1 lg:order-2 sm:text-4xl">
+                <Counter value={stat.value} suffix={stat.suffix} />
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
