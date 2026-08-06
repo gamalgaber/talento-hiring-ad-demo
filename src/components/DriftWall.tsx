@@ -204,8 +204,36 @@ const DriftWall = ({
       rafRef.current = requestAnimationFrame(animate);
     };
 
-    rafRef.current = requestAnimationFrame(animate);
+    // This loop ran unconditionally forever from mount regardless of
+    // whether the wall was anywhere near the viewport — one more always-on
+    // rAF loop (this component is used more than once per page) competing
+    // with Lenis's own smooth-scroll rAF loop for main-thread time on
+    // every frame, everywhere on the page. Gated behind IntersectionObserver
+    // now; dt is already clamped above so resuming after a pause doesn't
+    // produce a time-jump.
+    let observer: IntersectionObserver | null = null;
+    if (containerRef.current) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            if (rafRef.current === null) {
+              lastTsRef.current = null;
+              rafRef.current = requestAnimationFrame(animate);
+            }
+          } else if (rafRef.current !== null) {
+            cancelAnimationFrame(rafRef.current);
+            rafRef.current = null;
+          }
+        },
+        { rootMargin: '150% 0px' }
+      );
+      observer.observe(containerRef.current);
+    } else {
+      rafRef.current = requestAnimationFrame(animate);
+    }
+
     return () => {
+      observer?.disconnect();
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       rafRef.current = null;
       lastTsRef.current = null;
