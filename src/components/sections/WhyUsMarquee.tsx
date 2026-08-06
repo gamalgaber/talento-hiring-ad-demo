@@ -16,9 +16,9 @@ export default function WhyUsMarquee() {
   return (
     <section className="bg-talento-primary-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
-        <div className="mx-auto mb-2 lg:mb-8 max-w-2xl lg:px-6 text-center">
+        <div className="mx-auto mb-8 max-w-2xl lg:px-6 text-left rtl:text-right lg:text-center">
           <Reveal>
-            <h2 className="text-talento-primary whitespace-pre-line">{t("heading")}</h2>
+            <h2 className="text-talento-primary lg:whitespace-break-spaces">{t("heading")}</h2>
           </Reveal>
         </div>
         <div className="talento-slider-horizontal">

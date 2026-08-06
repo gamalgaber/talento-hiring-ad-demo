@@ -17,8 +17,8 @@ export default function PricingSection() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-2">
         <Reveal delay={0.1}>
           <div className="flex flex-col justify-center items-center lg:items-start px-4 lg:p-8">
-            <h2 className="font-heading text-balance text-center lg:text-left text-talento-primary">{t("heading")}</h2>
-            <p className="mt-4 text-center rtl:text-right lg:text-left max-w-lg lg:max-w-md text-lg text-talento-muted">{t("subheading")}</p>
+            <h2 className="font-heading text-balance text-left rtl:text-right lg:text-left text-talento-primary">{t("heading")}</h2>
+            <p className="mt-4 text-left rtl:text-right lg:text-left max-w-lg lg:max-w-md text-lg text-talento-muted">{t("subheading")}</p>
           </div>
         </Reveal>
 
