@@ -311,11 +311,11 @@
 
 .talento-lgrid__cta-title {
   font-family: var(--font-gotham);
-  font-size: clamp(16px, 1.4vw, 28px);
-  font-weight: 600;
   color: var(--talento-primary);
-  line-height: 1.4;
-  margin: 0;
+}
+
+[dir="rtl"] .talento-lgrid__cta-title {
+  font-family: var(--font-pingar);
 }
 
 /* .talento-lgrid>.talento-lgrid__cell:last-child {
