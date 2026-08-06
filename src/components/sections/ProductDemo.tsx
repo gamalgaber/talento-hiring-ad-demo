@@ -40,13 +40,17 @@ export default function ProductDemo() {
         <div className="group relative overflow-hidden rounded-xl bg-white shadow-[0_20px_60px_-20px_rgba(15,76,130,0.2)]">
           <video
             ref={videoRef}
-            className="block aspect-16/7 w-full object-cover"
+            className="block aspect-16/7 w-full cursor-pointer object-cover"
             poster="/assets/images/product-demo-poster.jpg"
             autoPlay
             muted
             playsInline
-            controls
             preload="metadata"
+            disablePictureInPicture
+            disableRemotePlayback
+            controlsList="nodownload noplaybackrate nofullscreen noremoteplayback"
+            onContextMenu={(e) => e.preventDefault()}
+            onClick={togglePlay}
             onPlay={() => setPlaying(true)}
             onPause={() => setPlaying(false)}
             onEnded={() => {
@@ -59,19 +63,32 @@ export default function ProductDemo() {
             <source src="/assets/videos/product-demo.mp4" type="video/mp4" />
           </video>
 
-          <div className="pointer-events-none absolute inset-0 bottom-12 flex items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100">
+          {/* No native controls attribute at all (that's what brought the
+              browser's own scrubber/fullscreen/PiP/cast bar); disablePictureInPicture
+              + disableRemotePlayback + controlsList + onContextMenu strip the
+              remaining hover-triggered fullscreen/cast icons and the
+              right-click "Save video as" menu that survive even without it. */}
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4"
+            style={{ background: "linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%)" }}
+          >
             <button
               type="button"
               onClick={togglePlay}
               aria-label={playing ? t("pauseAria") : t("playAria")}
-              className="pointer-events-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/30 backdrop-blur-md shadow-lg transition-transform hover:scale-105 hover:cursor-pointer sm:h-20 sm:w-20"
+              className="pointer-events-auto flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/90 backdrop-blur-md shadow-lg transition-transform hover:scale-105 hover:cursor-pointer sm:h-14 sm:w-14"
             >
               {playing ? (
-                <Pause className="h-6 w-6 fill-talento-primary text-talento-primary sm:h-7 sm:w-7" />
+                <Pause className="h-4 w-4 fill-talento-primary text-talento-primary sm:h-5 sm:w-5" />
               ) : (
-                <Play className="h-6 w-6 fill-talento-primary text-talento-primary sm:h-7 sm:w-7" />
+                <Play className="h-4 w-4 fill-talento-primary text-talento-primary sm:h-5 sm:w-5" />
               )}
             </button>
+
+            <div className="text-end text-white">
+              <p className="text-sm font-semibold sm:text-base">{t("overlayTitle")}</p>
+              <p className="text-xs text-white/75 sm:text-sm">{t("overlayRole")}</p>
+            </div>
           </div>
         </div>
       </motion.div>
