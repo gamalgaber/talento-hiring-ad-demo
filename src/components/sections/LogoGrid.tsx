@@ -38,7 +38,7 @@ export default async function LogoGrid() {
         ))}
 
         <div className="talento-lgrid__cta">
-          <p className="talento-lgrid__cta-title">{t("ctaTitle")}</p>
+          <h3 className="talento-lgrid__cta-title">{t("ctaTitle")}</h3>
           <Link href="#lead-form" className={buttonVariants({ size: "lg" })}>
             {t("cta")}
           </Link>

@@ -17,7 +17,7 @@ export default function PricingSection() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-2">
         <Reveal delay={0.1}>
           <div className="flex flex-col justify-center items-center lg:items-start px-4 lg:p-8">
-            <h2 className="font-heading text-balance text-left rtl:text-right lg:text-left text-talento-primary">{t("heading")}</h2>
+            <h2 className="text-balance text-left rtl:text-right lg:text-left text-talento-primary">{t("heading")}</h2>
             <p className="mt-4 text-left rtl:text-right lg:text-left max-w-lg lg:max-w-md text-lg text-talento-muted">{t("subheading")}</p>
           </div>
         </Reveal>
@@ -28,7 +28,7 @@ export default function PricingSection() {
             <p className="text-xs font-medium uppercase tracking-wide text-talento-green">
               {t("planLabel")}
             </p>
-            <div className="font-heading text-talento-primary my-3 text-3xl font-extrabold sm:text-4xl">
+            <div className="text-talento-primary my-3 text-3xl font-extrabold sm:text-4xl">
               {t("priceText")}
             </div>
             <p className="mb-6 text-sm text-talento-dark/60">{t("subtext")}</p>

@@ -30,7 +30,7 @@ export default function CTABand() {
       <div className="mx-4 lg:mx-auto max-w-7xl overflow-hidden rounded-2xl bg-talento-primary">
         <div className="relative flex w-full flex-col items-center lg:flex-row lg:items-stretch">
           <Reveal className="w-full px-5 py-8 text-start sm:px-6 sm:py-10 lg:w-[45%] lg:shrink-0 lg:ps-12 lg:pe-0 lg:py-0 lg:flex lg:flex-col lg:justify-center">
-            <h2 className="font-heading text-2xl whitespace-pre-line font-bold text-white sm:text-3xl lg:text-4xl">
+            <h2 className="text-2xl whitespace-pre-line font-bold text-white sm:text-3xl lg:text-4xl">
               {t("heading")} <span className="text-talento-green whitespace-pre-line">{t("headingHighlight")}</span>
             </h2>
             <p className="mt-3 max-w-md text-sm text-white/70 sm:mt-4 sm:text-base">{t("subtext")}</p>
