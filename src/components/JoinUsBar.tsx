@@ -18,7 +18,7 @@ export default function JoinUsBar() {
     const dismissed = window.sessionStorage.getItem(DISMISS_KEY);
     if (dismissed) return;
 
-    const timer = setTimeout(() => setVisible(true), 1500);
+    const timer = setTimeout(() => setVisible(true), 3000);
     return () => clearTimeout(timer);
   }, []);
 

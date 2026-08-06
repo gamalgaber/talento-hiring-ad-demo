@@ -24,8 +24,8 @@ const BEAM_DURATION = SHINY_SPEED + SHINY_DELAY;
 
 function TrustedLogos({ label }: { label: string }) {
   return (
-    <div className="relative mt-10 w-full max-w-full lg:max-w-[95%] rounded-2xl border border-talento-border lg:mt-30 bg-white pt-4 pb-4">
-      <span className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap bg-white px-4 text-sm font-medium text-talento-muted">
+    <div className="relative mt-12 w-full max-w-full lg:max-w-[95%] rounded-2xl border border-talento-border lg:mt-30 bg-white pt-4 pb-4">
+      <span className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap bg-white px-1 sm:px-4 text-sm font-medium text-talento-muted">
         <ShinyText
           text={label}
           speed={SHINY_SPEED}

@@ -95,8 +95,20 @@ export function Highlighter({
   ])
 
   return (
-    <span ref={elementRef} className="relative inline-block bg-transparent">
-      {children}
+    // Outer wrapper is the real fix, not the inner span: rough-notation
+    // inserts its SVG as a *sibling* of the ref'd element (insertAdjacentElement
+    // "beforebegin"/"afterend"), landing inside elementRef.current.parentElement
+    // — not inside elementRef.current itself. It only auto-sets position:relative
+    // on the target for type:"highlight"; every other type (underline, box,
+    // circle, ...) needs a positioned ancestor supplied externally. Without
+    // this outer span, that ancestor was whatever happened to be positioned
+    // further up the page (often nothing), so the absolutely-positioned SVG
+    // fell back to the document's initial containing block — rendering pinned
+    // near the top of the page instead of under the annotated text.
+    <span className="relative inline-block">
+      <span ref={elementRef} className="relative inline-block bg-transparent">
+        {children}
+      </span>
     </span>
   )
 }

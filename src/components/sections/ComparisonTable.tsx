@@ -30,8 +30,8 @@ export default function ComparisonTable() {
 
   return (
     <section className="mx-auto max-w-7xl pt-0 pb-16 lg:py-16">
-      <Reveal className="mx-auto mb-8 max-w-2xl px-6 text-center">
-        <h2 className="text-talento-primary whitespace-pre-line">{t("heading")}</h2>
+      <Reveal className="mx-auto mb-8 max-w-2xl px-6 text-left rtl:text-right lg:text-center">
+        <h2 className="text-talento-primary lg:whitespace-break-spaces">{t("heading")}</h2>
       </Reveal>
 
       {/* Below sm: a real <table> just gets cropped by overflow-x-auto (the
@@ -49,11 +49,11 @@ export default function ComparisonTable() {
                 <span className="text-[14px] font-bold font-rosebay tracking-wide text-white">{t("talento")}</span>
                 <Mark ok={row.talento} />
               </div>
-              <div className="flex flex-col items-center justify-center gap-2.5  rounded-lg bg-talento-grey-background py-2.5">
+              <div className="flex flex-col items-center justify-center gap-2.5  rounded-lg bg-talento-grey-background py-2.5 px-1.5">
                 <span className="text-[12px] font-medium text-center text-talento-muted">{t("agencies")}</span>
                 <Mark ok={row.agencies} />
               </div>
-              <div className="flex flex-col items-center justify-center gap-2.5  rounded-lg bg-talento-grey-background py-2.5">
+              <div className="flex flex-col items-center justify-center gap-2.5  rounded-lg bg-talento-grey-background py-2.5 px-1.5">
                 <span className="text-[12px] font-medium text-center text-talento-muted">{t("platforms")}</span>
                 <Mark ok={row.platforms} />
               </div>
