@@ -311,7 +311,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
         {/* Spacer so the last pin releases and clears the viewport before
             whatever comes after the stack starts rendering — too short and
             the last pinned card visually sits on top of the next section. */}
-        <div className="scroll-stack-end w-full" style={{ height: '60vh' }} />
+        <div className="scroll-stack-end h-[25vh] w-full sm:h-[40vh] lg:h-[60vh]" />
       </div>
     </div>
   );

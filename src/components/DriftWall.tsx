@@ -358,9 +358,15 @@ const DriftWall = ({
       role="group"
       aria-label="Drifting wall of tiles"
     >
+      {/* left-1/2 (physical), not start-1/2: the centering translate(-50%,-50%)
+          applied in applyPlaneTransform() above is a raw CSS transform, which
+          never mirrors under dir="rtl" — pairing it with a logical `start-1/2`
+          (which DOES mirror) shoved the whole wall left under RTL. Centering
+          here isn't a directional concept, so both halves of the pair need to
+          stay physical and direction-agnostic. */}
       <div
         ref={planeRef}
-        className="absolute start-1/2 top-1/2 flex cursor-pointer flex-row [transform-style:preserve-3d] [transform-origin:50%_50%] will-change-transform"
+        className="absolute left-1/2 top-1/2 flex cursor-pointer flex-row [transform-style:preserve-3d] [transform-origin:50%_50%] will-change-transform"
       >
         {columnItems.map((col, c) => {
           const meta = columnMeta[c];

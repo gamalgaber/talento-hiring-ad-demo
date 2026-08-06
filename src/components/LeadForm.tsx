@@ -20,6 +20,18 @@ import { ROLE_KEYS, COUNTRY_KEYS } from "@/lib/form-options";
 import { submitLead } from "@/lib/submit-lead";
 import { cn } from "@/lib/utils";
 
+// Dark-variant field styling, shared by the two Inputs and two Selects below.
+// `placeholder:` and `data-placeholder:` are distinct Tailwind variants from
+// the base `text-muted-foreground` classes baked into Input/SelectTrigger, so
+// each has to be overridden explicitly — setting `text-white` alone doesn't
+// touch them. The chevron icon inside SelectTrigger is a hardcoded
+// `text-muted-foreground` on the svg itself (not reachable via the trigger's
+// className prop), so it's overridden via a `[&_svg]:` descendant selector
+// instead, which wins on specificity regardless of class order.
+const DARK_FIELD =
+  "border-white/30 bg-white/12 text-white placeholder:text-white/55 focus-visible:border-white/55 focus-visible:ring-white/20";
+const DARK_SELECT_TRIGGER = cn(DARK_FIELD, "data-placeholder:text-white/55 [&_svg]:text-white/60");
+
 type FormValues = {
   companyName: string;
   email: string;
@@ -131,7 +143,7 @@ export default function LeadForm({
             <Input
               placeholder={t("companyNamePlaceholder")}
               {...register("companyName")}
-              className={dark ? "border-white/30 bg-white/10 text-white placeholder:text-white/40" : undefined}
+              className={dark ? DARK_FIELD : undefined}
             />
             {errors.companyName && (
               <p className="text-xs text-red-400">{errors.companyName.message}</p>
@@ -144,7 +156,7 @@ export default function LeadForm({
               type="email"
               placeholder={t("emailPlaceholder")}
               {...register("email")}
-              className={dark ? "border-white/30 bg-white/10 text-white placeholder:text-white/40" : undefined}
+              className={dark ? DARK_FIELD : undefined}
             />
             {errors.email && (
               <p className="text-xs text-red-400">{errors.email.message}</p>
@@ -159,10 +171,7 @@ export default function LeadForm({
               render={({ field }) => (
                 <Select onValueChange={field.onChange} value={field.value}>
                   <SelectTrigger
-                    className={cn(
-                      "w-full",
-                      dark && "border-white/30 bg-white/10 text-white",
-                    )}
+                    className={cn("w-full", dark && DARK_SELECT_TRIGGER)}
                   >
                     <SelectValue placeholder={t("positionPlaceholder")} />
                   </SelectTrigger>
@@ -186,10 +195,7 @@ export default function LeadForm({
               render={({ field }) => (
                 <Select onValueChange={field.onChange} value={field.value}>
                   <SelectTrigger
-                    className={cn(
-                      "w-full",
-                      dark && "border-white/30 bg-white/10 text-white",
-                    )}
+                    className={cn("w-full", dark && DARK_SELECT_TRIGGER)}
                   >
                     <SelectValue placeholder={t("countryPlaceholder")} />
                   </SelectTrigger>
@@ -212,12 +218,6 @@ export default function LeadForm({
           >
             {isSubmitting ? t("submitting") : submitLabel}
           </Button>
-
-          {trustText && (
-            <p className={cn("text-center text-xs", dark ? "text-white/50" : "text-talento-muted")}>
-              {trustText}
-            </p>
-          )}
         </form>
       )}
     </div>
