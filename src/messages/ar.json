@@ -19,7 +19,9 @@
   },
   "productDemo": {
     "playAria": "تشغيل الفيديو",
-    "pauseAria": "إيقاف الفيديو"
+    "pauseAria": "إيقاف الفيديو",
+    "overlayTitle": "Talento",
+    "overlayRole": "جولة تعريفية بالمنتج"
   },
   "leadForm": {
     "subtitle": "استشارة توظيف مجانية",

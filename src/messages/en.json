@@ -18,7 +18,9 @@
   },
   "productDemo": {
     "playAria": "Play video",
-    "pauseAria": "Pause video"
+    "pauseAria": "Pause video",
+    "overlayTitle": "Oscar Rolf",
+    "overlayRole": "Senior Software Engineer"
   },
   "leadForm": {
     "subtitle": "Free Hiring Consultation",
