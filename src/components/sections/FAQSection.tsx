@@ -17,7 +17,7 @@ export default function FAQSection() {
   return (
     <section className="bg-talento-primary-50">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.4fr]">
+        <div className="grid grid-cols-1 gap-8 lg:gap-12 lg:grid-cols-[1fr_1.4fr]">
           <Reveal className="flex flex-col justify-center items-start">
             <h2 className="mb-0 lg:mb-6 text-balance text-talento-primary whitespace-pre-line">{t("heading")}</h2>
           </Reveal>

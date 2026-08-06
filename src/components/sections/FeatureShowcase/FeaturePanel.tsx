@@ -28,7 +28,7 @@ export default function FeaturePanel({ panelKey, isLast = false }: { panelKey: P
     // pb-12 lg:-mb-12 reserves stacking room for the next card sliding in
     // underneath (ScrollStack overlap) — the last card has nothing stacking
     // after it, so it gets no reserve instead of an unused 48px gap.
-    <div className={cn("grid h-full grid-cols-1 gap-0 lg:grid-cols-2", isLast ? "pb-0" : "pb-12 lg:-mb-12")}>
+    <div className={cn("grid h-full grid-cols-1 gap-0 lg:grid-cols-2", isLast ? "pb-5" : "pb-12 lg:-mb-12")}>
       <div className="flex flex-col justify-between gap-8 px-6 pt-8 pb-6 sm:px-8 lg:ps-12 lg:pt-12 lg:pb-16 lg:pe-0">
         <div className="flex flex-col items-stretch justify-start gap-4">
           <span
