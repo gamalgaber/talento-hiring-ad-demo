@@ -251,26 +251,59 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 
     measureLayout();
 
-    // Re-measure on resize only (layout-affecting), never mid-scroll — that's
-    // the read/write split that keeps the per-frame loop write-only.
+    // Re-measure on viewport resize (layout-affecting) *and* on any
+    // content-driven height change anywhere above/within this section —
+    // font-swap (every font here uses display:'swap', which reflows text
+    // metrics the moment the real file loads in) and images loading both
+    // shift the document's vertical layout without ever firing a `resize`
+    // event. Without this, the cached card offsets go stale right after
+    // mount, and the pin/scale math ends up comparing a live, correct
+    // scrollTop against a wrong cached cardTop — which is what actually
+    // caused the cards to visibly snap/jerk instead of pinning smoothly.
     const onResize = () => measureLayout();
     window.addEventListener('resize', onResize);
+    const bodyResizeObserver = new ResizeObserver(() => measureLayout());
+    bodyResizeObserver.observe(document.body);
 
-    // Continuous rAF loop reading scroll position each frame — the page's
-    // own Lenis instance (SmoothScroll.tsx) already smooths window scroll;
-    // a second Lenis instance here would fight it for control of the same
-    // native scroll and is what caused the stutter.
+    // Gate the per-frame loop behind visibility: it was running unconditionally
+    // forever from mount, competing with Lenis's own rAF loop (and every other
+    // always-on animation on the page) for main-thread time on every single
+    // frame regardless of whether this section was anywhere near the
+    // viewport — that contention is what produced the jank felt while
+    // scrolling on completely unrelated parts of the page.
+    let isRunning = false;
     const loop = () => {
       updateCardTransforms();
       animationFrameRef.current = requestAnimationFrame(loop);
     };
-    animationFrameRef.current = requestAnimationFrame(loop);
+    const startLoop = () => {
+      if (isRunning) return;
+      isRunning = true;
+      measureLayout(); // geometry may have shifted while paused
+      animationFrameRef.current = requestAnimationFrame(loop);
+    };
+    const stopLoop = () => {
+      isRunning = false;
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
+      }
+    };
+
+    // Generous rootMargin so the loop is already running before the section
+    // scrolls into view (and for a while after it leaves) — no visible pop
+    // at the activation boundary.
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => (entry.isIntersecting ? startLoop() : stopLoop()),
+      { rootMargin: '150% 0px' }
+    );
+    visibilityObserver.observe(scrollerRef.current as HTMLElement);
 
     return () => {
       window.removeEventListener('resize', onResize);
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
+      bodyResizeObserver.disconnect();
+      visibilityObserver.disconnect();
+      stopLoop();
       stackCompletedRef.current = false;
       cardsRef.current = [];
       transformsCache.clear();
