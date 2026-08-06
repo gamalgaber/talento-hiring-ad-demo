@@ -71,7 +71,8 @@
     "daysSuffix": " days"
   },
   "featureShowcase": {
-    "heading": "Everything you need to build your team, in one place",
+    "heading": "Everything you need to build your team",
+    "headingHighlight": " in one place",
     "cta": {
       "primary": "Book a free consultation"
     },

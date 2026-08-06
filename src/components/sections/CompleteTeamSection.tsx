@@ -24,9 +24,9 @@ export default function CompleteTeamSection() {
               sizes="(min-width: 1024px) 640px, 100vw"
               className="h-auto w-full object-cover"
             />
-            <div className="absolute inset-x-0 lg:inset-x-4 bottom-0 lg:bottom-4 grid lg:grid-cols-3 grid-cols-3 gap-1.5">
+            <div className="absolute inset-x-0 md:inset-x-4  bottom-0 md:bottom-4 grid lg:grid-cols-3 grid-cols-3 gap-1.5">
               {PILL_KEYS.map((key) => (
-                <div key={key} className="min-w-28 lg:min-w-30 rounded-xl bg-talento-primary pl-4 pr-0 py-2 lg:px-5 lg:py-4">
+                <div key={key} className="min-w-28 lg:min-w-30 rounded-xl bg-talento-primary pl-4 rtl:pr-4 rtl:pl-0 pr-0 py-2 lg:px-5 lg:py-4">
                   <h4 className="text-talento-green text-lg lg:text-2xl font-extrabold">
                     {t(`pills.${key}.value`)}
                   </h4>

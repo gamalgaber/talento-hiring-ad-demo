@@ -29,15 +29,15 @@ export default function ProductDemo() {
   };
 
   return (
-    <section className="mx-auto max-w-7xl px-4 pb-5 lg:pb-16 sm:px-6">
+    <section className="mx-auto max-w-7xl px-4 pb-5 lg:pb-10 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="rounded-[32px] bg-talento-grey-background p-3 sm:p-4 "
+        className="rounded-xl sm:rounded-3xl bg-talento-grey-background p-0 sm:p-4 border border-talento-border"
       >
-        <div className="group relative overflow-hidden rounded-[24px] border border-talento-border bg-white shadow-[0_20px_60px_-20px_rgba(15,76,130,0.2)]">
+        <div className="group relative overflow-hidden rounded-xl bg-white shadow-[0_20px_60px_-20px_rgba(15,76,130,0.2)]">
           <video
             ref={videoRef}
             className="block aspect-16/7 w-full object-cover"
@@ -64,7 +64,7 @@ export default function ProductDemo() {
               type="button"
               onClick={togglePlay}
               aria-label={playing ? t("pauseAria") : t("playAria")}
-              className="pointer-events-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform hover:scale-110 sm:h-20 sm:w-20"
+              className="pointer-events-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/30 backdrop-blur-md shadow-lg transition-transform hover:scale-105 hover:cursor-pointer sm:h-20 sm:w-20"
             >
               {playing ? (
                 <Pause className="h-6 w-6 fill-talento-primary text-talento-primary sm:h-7 sm:w-7" />

@@ -159,7 +159,15 @@
   }
 
   html {
-    @apply font-sans;
+    /* Raw CSS var reference, not @apply font-sans: Tailwind v4's
+       `@theme inline` bakes the font-sans utility straight to
+       var(--font-gotham) at build time, bypassing the live --font-sans
+       variable entirely — so the [dir="rtl"] reassignment below never
+       reached it, and body text silently fell back through Gotham to a
+       generic system Arabic font instead of ever loading a PingAR weight
+       file. Headings already used this raw-var approach (see font-family:
+       var(--font-heading) below), which is why only they were affected. */
+    font-family: var(--font-sans);
   }
 
   /* ---- Typography system ---- */
@@ -231,6 +239,28 @@
 [dir="rtl"] {
   --font-sans: var(--font-pingar);
   --font-heading: var(--font-pingar);
+}
+
+/* PingAR reads visually lighter than Gotham at the same numeric weight (real
+   distinct weight files are registered — src/lib/fonts.ts — this isn't a
+   missing-face/synthetic-bold issue, just how the two typefaces compare
+   optically). Bumping each level up one step compensates so Arabic body
+   copy and headings read at the same perceived weight as the Latin side. */
+[dir="rtl"] h1,
+[dir="rtl"] h2 {
+  font-weight: 800;
+}
+
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-weight: 700;
+}
+
+[dir="rtl"] body,
+[dir="rtl"] p {
+  font-weight: 500;
 }
 
 /* ============================================================
