@@ -76,7 +76,7 @@ export default function FooterForm() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <Label htmlFor="footer-name" className="text-base text-talento-muted">
+        <Label htmlFor="footer-name" className="text-talento-muted">
           {t("formFullName")}
         </Label>
         <Input
@@ -90,7 +90,7 @@ export default function FooterForm() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <Label htmlFor="footer-email" className="text-base text-talento-muted">
+        <Label htmlFor="footer-email" className="text-talento-muted">
           {t("formEmail")}
         </Label>
         <Input
@@ -103,7 +103,7 @@ export default function FooterForm() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <Label className="text-base text-talento-muted">{t("formRole")}</Label>
+        <Label className="text-talento-muted">{t("formRole")}</Label>
         <Controller
           control={control}
           name="role"
@@ -126,7 +126,7 @@ export default function FooterForm() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <Label className="text-base text-talento-muted">{t("formCountry")}</Label>
+        <Label className="text-talento-muted">{t("formCountry")}</Label>
         <Controller
           control={control}
           name="country"

@@ -29,8 +29,8 @@ export default function ComparisonTable() {
   const t = useTranslations("comparison");
 
   return (
-    <section className="mx-auto max-w-7xl pt-0 pb-16 lg:py-16">
-      <Reveal className="mx-auto mb-8 max-w-2xl px-6 text-left rtl:lg:text-center rtl:text-right lg:text-center">
+    <section className="mx-auto max-w-7xl pt-0 pb-10 lg:py-16">
+      <Reveal className="mx-auto mb-4 lg:mb-8 max-w-2xl px-6 text-left rtl:lg:text-center rtl:text-right lg:text-center">
         <h2 className="text-talento-primary lg:whitespace-break-spaces">{t("heading")}</h2>
       </Reveal>
 
@@ -66,7 +66,7 @@ export default function ComparisonTable() {
                   <tr key={row.key}>
                     <td
                       className={cn(
-                        "sticky inset-s-0 z-9999 border-b border-talento-border p-2.5 font-medium text-talento-dark sm:static sm:p-5 bg-white",
+                        "sticky inset-s-0 z-20 border-b border-talento-border p-2.5 font-medium text-talento-dark sm:static sm:p-5 bg-white",
                         "sm:bg-transparent",
                         i === ROW_META.length - 1 && "border-b-0",
                       )}

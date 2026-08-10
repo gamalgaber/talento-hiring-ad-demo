@@ -26,7 +26,7 @@ export default function CTABand() {
   const t = useTranslations("ctaBand");
 
   return (
-    <section className="py-16">
+    <section className="py-8 lg:py-16">
       <div className="mx-4 lg:mx-auto max-w-7xl overflow-hidden rounded-2xl bg-talento-primary">
         <div className="relative flex w-full flex-col items-center lg:flex-row lg:items-stretch">
           <Reveal className="w-full px-5 py-8 text-start sm:px-6 sm:py-10 lg:w-[45%] lg:shrink-0 lg:ps-12 lg:pe-0 lg:py-0 lg:flex lg:flex-col lg:justify-center">

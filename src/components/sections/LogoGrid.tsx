@@ -23,7 +23,7 @@ export default async function LogoGrid() {
   const after = LOGOS.slice(CTA_START_INDEX);
 
   return (
-    <section className="w-full py-16">
+    <section className="w-full py-8 lg:py-16">
       <div className="talento-lgrid">
         {before.map((file, i) => (
           <div className="talento-lgrid__cell" key={file}>
