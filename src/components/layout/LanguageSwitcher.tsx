@@ -3,16 +3,9 @@
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
-const FLAGS: Record<Locale, string> = { en: "🇬🇧", ar: "🇸🇦" };
-const LANGUAGE_NAMES: Record<Locale, string> = { en: "English", ar: "العربية" };
+const LABELS: Record<Locale, string> = { en: "EN", ar: "AR" };
 
 export default function LanguageSwitcher() {
   const locale = useLocale() as Locale;
@@ -20,28 +13,26 @@ export default function LanguageSwitcher() {
   const router = useRouter();
 
   return (
-    <Select
-      value={locale}
-      onValueChange={(value) => router.replace(pathname, { locale: value as Locale })}
+    <ToggleGroup
+      value={[locale]}
+      onValueChange={(value) => {
+        const next = value[0] as Locale | undefined;
+        if (next && next !== locale) router.replace(pathname, { locale: next });
+      }}
+      size="sm"
+      aria-label="Change language"
+      className="rounded-lg! bg-talento-grey-background p-0.5 gap-0.5 rtl:flex-row-reverse"
     >
-      <SelectTrigger
-        size="sm"
-        aria-label="Change language"
-        className="h-8 shrink-0 rounded-full! border-none bg-white border border-talento-border px-3! text-sm font-medium text-talento-dark shadow-none data-[size=sm]:h-8"
-      >
-        <SelectValue>
-          <span aria-hidden="true">{FLAGS[locale]}</span>
-          <span className="hidden sm:inline">{LANGUAGE_NAMES[locale]}</span>
-        </SelectValue>
-      </SelectTrigger>
-      <SelectContent align="end">
-        {routing.locales.map((l) => (
-          <SelectItem key={l} value={l}>
-            <span aria-hidden="true">{FLAGS[l]}</span>
-            {LANGUAGE_NAMES[l]}
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
+      {routing.locales.map((l) => (
+        <ToggleGroupItem
+          key={l}
+          value={l}
+          aria-label={LABELS[l]}
+          className="rounded-md! border border-transparent px-2! text-[11px] leading-none font-semibold text-talento-muted transition data-[state=on]:border-talento-border data-[state=on]:bg-white data-[state=on]:text-talento-primary data-[state=on]:shadow-xl data-[state=off]:bg-transparent data-[state=off]:shadow-none data-[state=off]:hover:text-talento-dark"
+        >
+          {LABELS[l]}
+        </ToggleGroupItem>
+      ))}
+    </ToggleGroup>
   );
 }
