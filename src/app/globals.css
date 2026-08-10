@@ -158,6 +158,24 @@
     @apply bg-background text-foreground;
   }
 
+  /* DO NOT set overflow-x here on html/body — confirmed twice now, not just
+     reasoned about: it silently breaks position:sticky (Header's
+     `sticky top-3` measurably stopped sticking — getBoundingClientRect().top
+     went to -788px on scroll, scrolling off like a normal element, even
+     though window.scrollY itself kept reporting correctly throughout).
+     overflow-x on html/body forces overflow-y to compute as `auto` per spec
+     (mismatched axes on the same element auto-promote the visible one) —
+     scroll-position REPORTING (window.scrollY/documentElement.scrollTop)
+     still tracks the real viewport fine because browsers special-case root-
+     element scroll reporting, but position:sticky's containing-block
+     resolution is a separate algorithm that isn't special-cased the same
+     way, and still treats html/body as "the nearest scrolling ancestor"
+     once their overflow is non-visible — breaking sticky's reference frame
+     even though nothing is visually scrolling within html/body itself.
+     Horizontal-overflow containment lives scoped to each actual source
+     instead — see WhyUsMarquee.tsx / TestimonialsMarquee.tsx.
+   */
+
   html {
     /* Raw CSS var reference, not @apply font-sans: Tailwind v4's
        `@theme inline` bakes the font-sans utility straight to
@@ -260,6 +278,15 @@
 
 [dir="rtl"] body,
 [dir="rtl"] p {
+  font-weight: 500;
+}
+
+/* Same PingAR-reads-lighter issue applies to buttons — they're font-medium
+   (500), not a heading/body element the rules above already cover.
+   `.group/button` is the marker class every buttonVariants() combination
+   carries regardless of variant/size, so this reaches every button and
+   button-styled Link site-wide without listing each usage. */
+[dir="rtl"] .group\/button {
   font-weight: 500;
 }
 
@@ -438,6 +465,12 @@
   flex-direction: column;
   gap: 16px;
   flex-shrink: 0;
+  /* Safe no-op inside the desktop marquee track (column-flex, no defined
+     height for a percentage to resolve against, so this is ignored there);
+     inside a Swiper slide (which Swiper's own default flex-stretch already
+     sizes equally) it makes the card actually fill that equal-height box
+     instead of staying sized to its own — shorter or longer — quote text. */
+  height: 100%;
 }
 
 .tha-t-card__header {
@@ -553,8 +586,14 @@
   background: linear-gradient(to left, var(--talento-primary-50) 10%, rgba(239, 245, 251, 0) 100%) !important;
 }
 
+/* stretch (not center): center sized each slide to its own card's content
+   height, so cards with a longer body text ended up visibly taller than
+   the others. Stretch equalizes every slide to the tallest one; the
+   scale() transform on inactive slides is purely visual (doesn't affect
+   layout box size) and originates from the box's own center by default,
+   so they still read as centered within their now-equal-height slot. */
 .talento-why-swiper .swiper-wrapper {
-  align-items: center;
+  align-items: stretch;
 }
 
 /* ── Slides ───────────────────────────────────── */
@@ -581,6 +620,7 @@
 .talento-why-card {
   background: var(--talento-white);
   width: 100%;
+  height: 100%;
   border: 0.5px solid var(--talento-border);
   border-radius: var(--radius-lg);
   display: flex;
@@ -593,6 +633,12 @@
   z-index: 2;
   position: relative;
   border-radius: var(--radius-lg);
+  /* Grows to absorb the now-equalized card height (the bottom image stays
+     fixed at its own aspect ratio) instead of leaving dead space below a
+     short quote. */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .talento-why-card-bar {
@@ -616,6 +662,10 @@
   text-align: center;
   padding: 24px 32px;
   overflow: hidden;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .talento-why-card-text {
@@ -709,6 +759,104 @@
   .talento-why-swiper .swiper-slide {
     width: 380px;
   }
+}
+
+/* ============================================================
+   TESTIMONIALS MOBILE CAROUSEL — same edge-fade + nav-arrow
+   pattern as the WHY-US SWIPER above, distinct class names so the
+   two Swiper instances' navigation selectors don't collide (both
+   sit on the same page — a shared classname would let either
+   swiper's arrow buttons drive the other one).
+   ============================================================ */
+.talento-testimonials-swiper {
+  width: 100%;
+  overflow: visible !important;
+  padding: 0 !important;
+  position: relative;
+}
+
+.talento-testimonials-swiper::before,
+.talento-testimonials-swiper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.talento-testimonials-swiper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--talento-primary-50) 10%, rgba(239, 245, 251, 0) 100%) !important;
+}
+
+.talento-testimonials-swiper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--talento-primary-50) 10%, rgba(239, 245, 251, 0) 100%) !important;
+}
+
+.talento-testimonials-swiper .swiper-slide {
+  width: 320px;
+  height: auto;
+}
+
+.talento-testimonials-nav {
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.talento-testimonials-prev,
+.talento-testimonials-next {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border: 1px solid var(--talento-border);
+  border-radius: var(--radius-lg);
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.talento-testimonials-prev:hover,
+.talento-testimonials-next:hover {
+  background-color: var(--talento-white);
+  border-color: rgba(15, 76, 130, 0.3);
+}
+
+.talento-testimonials-prev svg,
+.talento-testimonials-next svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--talento-dark);
+  transition: color 0.18s ease;
+  display: block;
+  pointer-events: none;
+}
+
+.talento-testimonials-prev:hover svg,
+.talento-testimonials-next:hover svg {
+  color: var(--talento-primary);
+}
+
+[dir="rtl"] .talento-testimonials-prev svg,
+[dir="rtl"] .talento-testimonials-next svg {
+  transform: scaleX(-1);
+}
+
+.talento-testimonials-prev.swiper-button-disabled,
+.talento-testimonials-next.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
 }
 
 @media (max-width:580px) {
