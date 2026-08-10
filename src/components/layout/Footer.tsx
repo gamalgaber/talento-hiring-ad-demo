@@ -28,7 +28,7 @@ export default async function Footer() {
 
   return (
     <footer className="mx-auto w-full max-w-[1280px] px-4 sm:px-6">
-      <div className="flex flex-col gap-6 py-16">
+      <div className="flex flex-col gap-6 pt-16 pb-10">
         {/* Top bar — text left, CTA right */}
         <div className="flex flex-col items-start justify-between gap-6 rounded-2xl bg-talento-grey-background px-6 py-8 sm:flex-row sm:items-center sm:px-10 sm:py-10">
           <h2 className="text-balance text-talento-dark">{t("excited")}</h2>

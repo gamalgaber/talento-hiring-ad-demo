@@ -1,7 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Hero from "@/components/sections/Hero";
-import ProductDemo from "@/components/sections/ProductDemo";
 import StatsBand from "@/components/sections/StatsBand";
 import FeatureShowcase from "@/components/sections/FeatureShowcase";
 import WhyUsMarquee from "@/components/sections/WhyUsMarquee";
@@ -28,7 +27,6 @@ export default async function Home({
   return (
     <>
       <Hero />
-      <ProductDemo />
       <StatsBand />
       <WhyUsMarquee />
       <FeatureShowcase />

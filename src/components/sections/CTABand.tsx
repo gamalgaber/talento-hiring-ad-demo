@@ -37,15 +37,9 @@ export default function CTABand() {
             <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
               <Link
                 href="#lead-form"
-                className={buttonVariants({ size: "lg", variant: "outline", className: "rounded-full px-7" })}
-              >
-                {t("ctaSecondary")}
-              </Link>
-              <Link
-                href="#lead-form"
                 className={buttonVariants({
                   size: "lg",
-                  className: "bg-talento-green text-talento-primary hover:bg-talento-green-dark rounded-full px-7",
+                  variant: "outline",
                 })}
               >
                 {t("ctaPrimary")}

@@ -139,7 +139,7 @@ export default function LeadForm({
           </div>
 
           <div className="flex flex-col gap-1">
-            <Label className={dark ? "text-white" : undefined}>{t("companyName")}</Label>
+            <Label className={cn("text-xs", dark && "text-white")}>{t("companyName")}</Label>
             <Input
               placeholder={t("companyNamePlaceholder")}
               {...register("companyName")}
@@ -151,7 +151,7 @@ export default function LeadForm({
           </div>
 
           <div className="flex flex-col gap-1">
-            <Label className={dark ? "text-white" : undefined}>{t("email")}</Label>
+            <Label className={cn("text-xs", dark && "text-white")}>{t("email")}</Label>
             <Input
               type="email"
               placeholder={t("emailPlaceholder")}
@@ -164,7 +164,7 @@ export default function LeadForm({
           </div>
 
           <div className="flex flex-col gap-1">
-            <Label className={dark ? "text-white" : undefined}>{t("position")}</Label>
+            <Label className={cn("text-xs", dark && "text-white")}>{t("position")}</Label>
             <Controller
               control={control}
               name="role"
@@ -188,7 +188,7 @@ export default function LeadForm({
           </div>
 
           <div className="flex flex-col gap-1">
-            <Label className={dark ? "text-white" : undefined}>{t("country")}</Label>
+            <Label className={cn("text-xs", dark && "text-white")}>{t("country")}</Label>
             <Controller
               control={control}
               name="country"
@@ -215,6 +215,7 @@ export default function LeadForm({
             type="submit"
             disabled={isSubmitting}
             variant="outline"
+            className="h-10 text-sm"
           >
             {isSubmitting ? t("submitting") : submitLabel}
           </Button>
