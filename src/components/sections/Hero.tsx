@@ -89,7 +89,7 @@ export default function Hero() {
   const tForm = useTranslations("leadForm");
 
   return (
-    <section className="mx-auto grid max-w-7xl grid-cols-1 items-stretch gap-5 lg:gap-0 px-4 pb-5 lg:pb-10 pt-16 lg:pt-24 sm:px-6 lg:grid-cols-2">
+    <section className="mx-auto grid max-w-7xl grid-cols-1 items-stretch gap-5 lg:gap-0 px-4 pb-5 lg:pb-10 pt-10 lg:pt-24 sm:px-6 lg:grid-cols-2">
       <motion.div
         className="order-1 h-full"
         initial={{ opacity: 0, y: 20 }}

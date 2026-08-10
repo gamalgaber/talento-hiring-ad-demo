@@ -39,7 +39,7 @@ export default function StatsBand() {
   ];
 
   return (
-    <section className="pb-16 mx-auto max-w-7xl px-4 sm:px-6">
+    <section className="pb-8 lg:pb-16 mx-auto max-w-7xl px-4 sm:px-6">
       <div className="overflow-hidden rounded-2xl border border-talento-border bg-white">
         <div className="flex flex-col divide-y divide-talento-border sm:flex-row sm:divide-x sm:divide-y-0">
           {STATS.map((stat, i) => (

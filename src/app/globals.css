@@ -176,6 +176,12 @@
      instead — see WhyUsMarquee.tsx / TestimonialsMarquee.tsx.
    */
 
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+
   html {
     /* Raw CSS var reference, not @apply font-sans: Tailwind v4's
        `@theme inline` bakes the font-sans utility straight to

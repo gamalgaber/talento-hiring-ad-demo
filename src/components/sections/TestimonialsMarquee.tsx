@@ -101,8 +101,8 @@ export default function TestimonialsMarquee() {
           html/body — see the matching note in WhyUsMarquee.tsx and
           globals.css. .talento-testimonials-swiper also deliberately bleeds
           past its own box via overflow:visible !important. */}
-      <div className="mx-auto max-w-7xl overflow-x-hidden px-4 sm:px-6 py-16">
-        <Reveal className="mx-auto mb-12 max-w-2xl px-6 text-left rtl:lg:text-center rtl:text-right lg:text-center">
+      <div className="mx-auto max-w-7xl overflow-x-hidden px-4 sm:px-6 py-10 lg:py-16">
+        <Reveal className="mx-auto mb-4 lg:mb-8 max-w-2xl px-6 text-left rtl:lg:text-center rtl:text-right lg:text-center">
           <h2 className="text-talento-primary lg:whitespace-pre-line">{t("heading")}</h2>
         </Reveal>
 

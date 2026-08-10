@@ -12,7 +12,7 @@ export default function CompleteTeamSection() {
   const t = useTranslations("completeTeam");
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+    <section className="mx-auto max-w-7xl px-4 py-8 lg:py-16 sm:px-6">
       <div className="grid grid-cols-1 items-center gap-2 lg:gap-6 lg:grid-cols-2 border border-talento-border rounded-2xl shadow-sm">
         <Reveal className="p-3 lg:p-6">
           <div className="relative overflow-hidden rounded-lg">
