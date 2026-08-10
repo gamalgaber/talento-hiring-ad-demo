@@ -68,8 +68,14 @@ export default async function Footer() {
           </div>
         </div>
 
-        {/* Social cards */}
-        <div className="grid grid-cols-4 gap-3 sm:gap-4 md:grid-cols-7">
+        {/* Social cards — flex-wrap + justify-center (not grid) below md: with
+            7 items, a 4-col grid leaves the trailing 3 left-aligned with an
+            empty trailing cell instead of centered as their own row. Each
+            item is sized to exactly a quarter of the row (minus its share of
+            the gap) so four still fit per row edge to edge, wrapping to a
+            centered row of 3 underneath. md+ goes back to a plain 7-col grid
+            since all seven fit on one row there. */}
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:grid md:grid-cols-7">
           {SOCIALS.map(({ Icon, label, link }) => (
             <Link
               key={label}
@@ -77,9 +83,9 @@ export default async function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="flex aspect-square items-center justify-center rounded-2xl bg-talento-grey-background text-talento-primary transition-transform hover:-translate-y-0.5"
+              className="flex aspect-square w-[calc(25%-9px)] items-center justify-center rounded-2xl bg-talento-grey-background text-talento-primary transition-transform hover:-translate-y-0.5 sm:w-[calc(25%-12px)] md:w-auto"
             >
-              <Icon className="h-6 w-6 sm:h-8 sm:w-8" />
+              <Icon className="h-5 w-5 sm:h-8 sm:w-8" />
             </Link>
           ))}
         </div>
