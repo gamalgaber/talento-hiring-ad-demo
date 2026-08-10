@@ -12,7 +12,13 @@ import { THEME } from "./theme";
 
 const HIGHLIGHT_KEYS = ["h1", "h2", "h3"] as const;
 
-export default function FeaturePanel({ panelKey }: { panelKey: PanelKey }) {
+export default function FeaturePanel({
+  panelKey,
+  reversed = false,
+}: {
+  panelKey: PanelKey;
+  reversed?: boolean;
+}) {
   const t = useTranslations("featureShowcase");
   const theme = THEME[panelKey];
   const [highlightIndex, setHighlightIndex] = useState(0);
@@ -25,8 +31,20 @@ export default function FeaturePanel({ panelKey }: { panelKey: PanelKey }) {
   const activeHighlightKey = HIGHLIGHT_KEYS[highlightIndex];
 
   return (
-    <div className="grid h-full grid-cols-1 gap-0 lg:grid-cols-2">
-      <div className="flex flex-col justify-between gap-8 px-6 pt-8 pb-6 sm:px-8 lg:ps-12 lg:pt-12 lg:pb-16 lg:pe-0">
+    // Z-pattern: content is always first in source order (mobile stacks
+    // content-then-image normally); on lg+, `reversed` panels flip the
+    // image to the left by pushing content to order-last instead — same
+    // trick as seellr's FeatureStackCards (card.reversed ? 'lg:[&>*:first-child]:order-last' : '').
+    <div className={cn("grid h-full grid-cols-1 gap-0 lg:grid-cols-2", reversed && "lg:[&>*:first-child]:order-last")}>
+      <div
+        className={cn(
+          "flex flex-col justify-between gap-8 px-6 pt-8 pb-6 sm:px-8 lg:pt-12 lg:pb-16",
+          // Content padding assumes it's on the start side (ps-12/pe-0) —
+          // when reversed pushes it to the end side visually instead, the
+          // padding needs to flip with it or it'd hug the wrong edge.
+          reversed ? "lg:ps-0 lg:pe-12" : "lg:ps-12 lg:pe-0",
+        )}
+      >
         <div className="flex flex-col items-stretch justify-start gap-4">
           <span
             className={cn(
@@ -64,9 +82,6 @@ export default function FeaturePanel({ panelKey }: { panelKey: PanelKey }) {
           <div className="flex flex-wrap gap-3">
             <Link href="#lead-form" className={buttonVariants({ size: "default" })}>
               {t("cta.primary")}
-            </Link>
-            <Link href="#lead-form" className={buttonVariants({ size: "default", variant: "outline" })}>
-              {t(`panels.${panelKey}.secondaryCta`)}
             </Link>
           </div>
         </div>

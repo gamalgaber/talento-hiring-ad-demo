@@ -15,7 +15,7 @@ export default function CompleteTeamSection() {
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
       <div className="grid grid-cols-1 items-center gap-2 lg:gap-6 lg:grid-cols-2 border border-talento-border rounded-2xl shadow-sm">
         <Reveal className="p-3 lg:p-6">
-          <div className="relative overflow-hidden rounded-2xl">
+          <div className="relative overflow-hidden rounded-lg">
             <Image
               src="/assets/images/prototype.jpg"
               alt={t("badgeCompany")}
@@ -24,13 +24,20 @@ export default function CompleteTeamSection() {
               sizes="(min-width: 1024px) 640px, 100vw"
               className="h-auto w-full object-cover"
             />
-            <div className="absolute inset-x-0 md:inset-x-4  bottom-0 md:bottom-4 grid lg:grid-cols-3 grid-cols-3 gap-3.5 md:gap-1.5">
+            {/* min-w-28 forced a 112px floor per pill regardless of how
+                narrow its actual grid track was — with 3 columns on a
+                mobile-width image that floor exceeded the available space,
+                pushing pills past the image edge instead of fitting in one
+                row. Dropped for mobile (lg:min-w-30 still applies at lg+,
+                which has the room) and tightened padding/gap/type so all
+                three comfortably fit in one row at every width. */}
+            <div className="absolute inset-x-0 md:inset-x-4 bottom-0 md:bottom-4 grid grid-cols-3 gap-1 sm:gap-1.5">
               {PILL_KEYS.map((key) => (
-                <div key={key} className="min-w-28 lg:min-w-30 rounded-xl bg-talento-primary pl-4 rtl:pr-4 rtl:pl-0 pr-0 py-2 lg:px-5 lg:py-4">
-                  <h4 className="text-talento-green text-lg lg:text-2xl font-extrabold">
+                <div key={key} className="min-w-0 lg:min-w-30 rounded-lg lg:rounded-lg bg-talento-primary px-2 py-1.5 sm:px-3 sm:py-2 lg:px-5 lg:py-4">
+                  <h4 className="text-talento-green text-xs sm:text-lg lg:text-2xl font-extrabold">
                     {t(`pills.${key}.value`)}
                   </h4>
-                  <p className="mt-1 whitespace-pre-line text-xs font-medium text-white">
+                  <p className="mt-0.5 sm:mt-1 ltr:whitespace-pre-line text-[9px] sm:text-xs font-medium text-white">
                     {t(`pills.${key}.label`)}
                   </p>
                 </div>

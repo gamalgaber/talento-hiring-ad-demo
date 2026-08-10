@@ -38,48 +38,65 @@ export default function ComparisonTable() {
           columns stop fitting, it scrolls horizontally — but the Feature
           column is sticky (start-0) so it stays put as a frame of reference
           while the Talento/Agencies/Platforms columns scroll underneath it,
-          instead of the whole row losing its label off the left edge. */}
+          instead of the whole row losing its label off the left edge.
+          border-separate + border-spacing-0 (not border-collapse): collapsed
+          borders and position:sticky table cells render inconsistently
+          together — the shared/merged border paints at the sticky cell's
+          z-stacking level and can visually bleed over the adjacent column's
+          content (the "z-index not handled" glitch). Borders live on each
+          cell directly instead of a shared collapsed edge. */}
       <Reveal delay={0.1} className="px-4 sm:px-6">
-        <div className="overflow-hidden rounded-2xl border border-talento-border shadow-sm">
+        <div className="overflow-hidden rounded-xl border border-talento-border shadow-sm">
           <div className="overflow-x-auto">
-            <table className="w-full min-w-100 border-collapse text-xs sm:min-w-140 sm:text-sm">
+            <table className="w-full min-w-100 border-separate border-spacing-0 text-xs sm:min-w-140 sm:text-sm">
               <thead>
-                <tr className="border-b border-talento-border">
-                  <th className="sticky start-0 z-10 p-2.5 text-start bg-[#E2E8F0] font-semibold text-talento-dark sm:static sm:p-5">
+                <tr>
+                  <th className="sticky start-0 z-20 border-b border-talento-border p-2.5 text-start bg-[#E2E8F0] font-semibold text-talento-dark sm:static sm:p-5">
                     {t("featureHeader")}
                   </th>
-                  <th className="bg-talento-primary p-2.5 text-center sm:p-5">
+                  <th className="border-b border-talento-border bg-talento-primary p-2.5 text-center sm:p-5">
                     <span className="font-rosebay! text-xs font-bold text-white sm:text-base">{t("talento")}</span>
                   </th>
-                  <th className="p-2.5 text-center bg-[#E2E8F0] font-semibold text-talento-muted sm:p-5">{t("agencies")}</th>
-                  <th className="p-2.5 text-center bg-[#E2E8F0] font-semibold text-talento-muted sm:p-5">{t("platforms")}</th>
+                  <th className="border-b border-talento-border p-2.5 text-center bg-[#E2E8F0] font-semibold text-talento-muted sm:p-5">{t("agencies")}</th>
+                  <th className="border-b border-talento-border p-2.5 text-center bg-[#E2E8F0] font-semibold text-talento-muted sm:p-5">{t("platforms")}</th>
                 </tr>
               </thead>
               <tbody>
                 {ROW_META.map((row, i) => (
-                  <tr
-                    key={row.key}
-                    className={cn(
-                      "border-b border-talento-border last:border-b-0",
-                      i % 2 === 1 && "bg-talento-primary-50/30",
-                    )}
-                  >
+                  <tr key={row.key}>
                     <td
                       className={cn(
-                        "sticky start-0 z-10 p-2.5 font-medium text-talento-dark sm:static sm:p-5",
-                        i % 2 === 1 ? "bg-talento-primary-50/30" : "bg-white",
+                        "sticky inset-s-0 z-9999 border-b border-talento-border p-2.5 font-medium text-talento-dark sm:static sm:p-5 bg-white",
                         "sm:bg-transparent",
+                        i === ROW_META.length - 1 && "border-b-0",
                       )}
                     >
                       {t(`rows.${row.key}`)}
                     </td>
-                    <td className="bg-talento-primary-50/60 p-2.5 text-center sm:p-5">
+                    <td
+                      className={cn(
+                        "border-b border-talento-border z-10 bg-talento-primary-50/60 p-2.5 text-center sm:p-5",
+                        i === ROW_META.length - 1 && "border-b-0",
+                      )}
+                    >
                       <Mark ok={row.talento} />
                     </td>
-                    <td className="p-2.5 text-center sm:p-5">
+                    <td
+                      className={cn(
+                        "border-b border-talento-border p-2.5 text-center sm:p-5",
+                        i % 2 === 1 && "sm:bg-talento-primary-50/30",
+                        i === ROW_META.length - 1 && "border-b-0",
+                      )}
+                    >
                       <Mark ok={row.agencies} />
                     </td>
-                    <td className="p-2.5 text-center sm:p-5">
+                    <td
+                      className={cn(
+                        "border-b border-talento-border p-2.5 text-center sm:p-5",
+                        i % 2 === 1 && "sm:bg-talento-primary-50/30",
+                        i === ROW_META.length - 1 && "border-b-0",
+                      )}
+                    >
                       <Mark ok={row.platforms} />
                     </td>
                   </tr>

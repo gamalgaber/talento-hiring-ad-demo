@@ -15,7 +15,16 @@ export default function WhyUsMarquee() {
 
   return (
     <section className="bg-talento-primary-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
+      {/* overflow-x-hidden scoped to this section's own wrapper, not
+          html/body: .talento-why-swiper deliberately sets
+          overflow:visible !important so its centered/scaled peek slides
+          bleed past their own box for the visual effect — with nothing
+          clipping that locally it became real page-level horizontal
+          overflow, letting a touch-drag on the slider pan the whole page.
+          Containing it here (not globally) can't interfere with
+          position:sticky elsewhere on the page (e.g. FeatureShowcase's
+          stack) — see the longer note in globals.css. */}
+      <div className="mx-auto max-w-7xl overflow-x-hidden px-4 sm:px-6 py-16">
         <div className="mx-auto mb-8 max-w-2xl lg:px-6 text-left rtl:lg:text-center rtl:text-right lg:text-center">
           <Reveal>
             <h2 className="text-talento-primary lg:whitespace-break-spaces">{t("heading")}</h2>

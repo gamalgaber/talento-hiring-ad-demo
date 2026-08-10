@@ -1,12 +1,12 @@
 {
   "nav": {
-    "cta": "Book a Demo"
+    "cta": "Start hiring now"
   },
   "hero": {
     "titlePrefix": "Build your technical team in",
     "titleHighlight": "one week.",
     "subheading": "Skip weeks of sourcing. Get a shortlist of vetted, ready-to-hire technical candidates from across the region — free of charge.",
-    "ctaPrimary": "Book a free consultation",
+    "ctaPrimary": "Start hiring now",
     "ctaSecondary": "How it works",
     "trustedLabel": "Trusted by 55+ companies across the region"
   },
@@ -76,7 +76,7 @@
     "heading": "Everything you need to build your team",
     "headingHighlight": " in one place",
     "cta": {
-      "primary": "Book a free consultation"
+      "primary": "Start hiring now"
     },
     "panels": {
       "sourcing": {
@@ -197,7 +197,7 @@
   "fiveStages": {
     "heading": "Six stages guarantee you the right candidate from the first time",
     "subheading": "A tried and tested hiring process, refined over hundreds of successful placements across the region.",
-    "cta": "Book a free consultation",
+    "cta": "Start hiring now",
     "stages": {
       "discovery": {
         "eyebrow": "Step 1 — Discovery",
@@ -272,7 +272,7 @@
     "eyebrow": "Real Results",
     "heading": "A complete technical team in a week",
     "text": "GEOTech needed to quickly build a distributed technical team in Egypt and Saudi Arabia. Talento delivered the first batch of qualified candidates within 5 days, along with complete technical reports for each candidate.",
-    "cta": "Book a free consultation",
+    "cta": "Start hiring now",
     "badgeCompany": "GEOTech",
     "badgeCta": "Know more",
     "pills": {
@@ -324,7 +324,7 @@
     "planLabel": "Pay per hire",
     "priceText": "One month's salary",
     "subtext": "No subscriptions, monthly fees, or setup fees.",
-    "cta": "Book a free consultation",
+    "cta": "Start hiring now",
     "bullets": {
       "noUpfront": "No upfront cost, no monthly retainer",
       "noFee": "Zero fee for the technical and HR evaluation process",
@@ -336,8 +336,8 @@
     "heading": "Are you ready to build a",
     "headingHighlight": "\nTech Team?",
     "subtext": "First batch of eligible candidates ready in just 3–5 days. Free and without obligation.",
-    "ctaPrimary": "Speak to the sales team",
-    "ctaSecondary": "Book a free consultation"
+    "ctaPrimary": "Start hiring now",
+    "ctaSecondary": "Start hiring now"
   },
   "finalCta": {
     "heading": "Take the first step toward building your dream team.",
@@ -349,12 +349,12 @@
   "logoGrid": {
     "heading": "Trusted across the region",
     "ctaTitle": "Join 55+ companies hiring their technical teams with Talento",
-    "cta": "Book a demo",
+    "cta": "Start hiring now",
     "logoAlt": "Client logo {n}"
   },
   "footer": {
     "excited": "Excited? Us too. Let's get moving.",
-    "getPlan": "Get a free hiring plan",
+    "getPlan": "Start hiring now",
     "badge": "Talento",
     "copyright": "All rights reserved.",
     "terms": "Terms",
