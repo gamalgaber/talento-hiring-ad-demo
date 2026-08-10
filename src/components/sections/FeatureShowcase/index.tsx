@@ -1,75 +1,21 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import type { MotionValue } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Reveal from "@/components/Reveal";
 import { cn } from "@/lib/utils";
 import FeaturePanel from "./FeaturePanel";
-import { PANEL_KEYS, THEME, type PanelKey } from "./theme";
+import { PANEL_KEYS, THEME } from "./theme";
 import { Highlighter } from "@/components/ui/highlighter";
 
-// Ported from seellr's FeatureStackCards (src/features/home/components/FeatureStackCards.tsx):
-// plain CSS `position: sticky` + a scroll-progress-driven fade, instead of the
-// old ScrollStack component's per-frame rAF loop recomputing translate/scale
-// transforms by hand. Sticky positioning is the browser's own job — nothing
-// to keep in sync with layout shifts, no rAF loop running forever, no jerk.
-const STICKY_BASE = 88; // clears the sticky header
-const STICKY_STEP = 20;
-
-interface StackCardProps {
-  panelKey: PanelKey;
-  index: number;
-  total: number;
-  containerProgress: MotionValue<number>;
-}
-
-function StackCard({ panelKey, index, total, containerProgress }: StackCardProps) {
-  const shadeStart = (index + 0.6) / total;
-  const shadeEnd = Math.min((index + 1) / total, 1);
-  const shadeOpacity = useTransform(containerProgress, [shadeStart, shadeEnd], [0, 0.28]);
-
-  return (
-    <div
-      className="relative"
-      style={{
-        position: "sticky",
-        top: STICKY_BASE + index * STICKY_STEP,
-        marginTop: index > 0 ? -(total - index) * 20 : 0,
-        marginBottom: (total - 1 - index) * 20,
-        zIndex: index + 1,
-        paddingBottom: 20,
-      }}
-    >
-      <article
-        className={cn(
-          "relative overflow-hidden rounded-2xl shadow-[0_4px_32px_rgba(0,0,0,0.06)]",
-          THEME[panelKey].bg,
-        )}
-      >
-        <FeaturePanel panelKey={panelKey} />
-      </article>
-
-      {/* Shade: fades in as the next card slides over this one */}
-      {index < total - 1 && (
-        <motion.div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 rounded-2xl bg-white"
-          style={{ opacity: shadeOpacity }}
-        />
-      )}
-    </div>
-  );
-}
-
+// Card stack (position:sticky, scroll-progress fade) removed entirely: it
+// needed its sticky elements resolving against the true viewport scroll
+// container, which put it in direct conflict with clipping horizontal
+// overflow anywhere upstream (html/body or any shared ancestor) — any
+// container between it and the viewport with a non-visible overflow axis
+// breaks it. A plain alternating Z-pattern layout (mobile: stacked normally,
+// lg+: image/content sides swap per card) has no such dependency.
 export default function FeatureShowcase() {
   const t = useTranslations("featureShowcase");
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end end"],
-  });
 
   return (
     <section id="how-it-works" className="mx-auto max-w-7xl scroll-mt-24 py-16 px-4 sm:px-6">
@@ -82,9 +28,13 @@ export default function FeatureShowcase() {
         </h2>
       </Reveal>
 
-      <div ref={containerRef} className="relative pt-2">
+      <div className="flex flex-col gap-6 lg:gap-8">
         {PANEL_KEYS.map((key, i) => (
-          <StackCard key={key} panelKey={key} index={i} total={PANEL_KEYS.length} containerProgress={scrollYProgress} />
+          <Reveal key={key} delay={i * 0.05}>
+            <article className={cn("overflow-hidden rounded-2xl", THEME[key].bg)}>
+              <FeaturePanel panelKey={key} reversed={i % 2 === 1} />
+            </article>
+          </Reveal>
         ))}
       </div>
     </section>
