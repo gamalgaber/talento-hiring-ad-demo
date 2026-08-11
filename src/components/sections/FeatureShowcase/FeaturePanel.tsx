@@ -10,8 +10,6 @@ import { cn } from "@/lib/utils";
 import type { PanelKey } from "./theme";
 import { THEME } from "./theme";
 
-const HIGHLIGHT_KEYS = ["h1", "h2", "h3"] as const;
-
 export default function FeaturePanel({
   panelKey,
   reversed = false,
@@ -21,14 +19,22 @@ export default function FeaturePanel({
 }) {
   const t = useTranslations("featureShowcase");
   const theme = THEME[panelKey];
+  const highlightKeys = theme.highlightKeys;
   const [highlightIndex, setHighlightIndex] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setHighlightIndex((i) => (i + 1) % HIGHLIGHT_KEYS.length), 4000);
+    // Was a module-level ["h1","h2","h3"] cycled for every panel regardless
+    // of how many highlights that panel's messages actually define —
+    // vetting only has h1/h2 in both locales, so reaching for h3 there
+    // threw MISSING_MESSAGE. Cycling theme.highlightKeys instead, which is
+    // sized per panel to match what's really in messages/{en,ar}.json.
+    setHighlightIndex(0);
+    if (highlightKeys.length <= 1) return;
+    const id = setInterval(() => setHighlightIndex((i) => (i + 1) % highlightKeys.length), 4000);
     return () => clearInterval(id);
-  }, []);
+  }, [highlightKeys]);
 
-  const activeHighlightKey = HIGHLIGHT_KEYS[highlightIndex];
+  const activeHighlightKey = highlightKeys[highlightIndex];
 
   return (
     // Z-pattern: content is always first in source order (mobile stacks
