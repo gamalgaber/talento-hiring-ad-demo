@@ -68,6 +68,7 @@
   "stats": {
     "professionals": "Professionals in our network",
     "firstBatch": "First batch of candidates",
+    "firstBatchPrefix": "3-",
     "satisfaction": "Customer satisfaction",
     "clients": "Clients",
     "daysSuffix": " days"
@@ -87,7 +88,7 @@
         "secondaryCta": "Explore our talent pool",
         "highlights": {
           "h1": {
-            "stat": "48 hours",
+            "stat": "From 3 to 5 days",
             "text": "average time to your first shortlist once search criteria are set."
           },
           "h2": {
@@ -117,7 +118,7 @@
           },
           "h3": {
             "stat": "100%",
-            "text": "of profiles pre-screened against your job spec."
+            "text": "of technical interviews pre-screened against your job spec."
           }
         }
       },
@@ -129,16 +130,12 @@
         "secondaryCta": "See our vetting process",
         "highlights": {
           "h1": {
-            "stat": "1 report",
+            "stat": "Detailed report",
             "text": "delivered per candidate covering skills, communication, and fit."
           },
           "h2": {
-            "stat": "Live",
-            "text": "technical interviews conducted by specialists in the field."
-          },
-          "h3": {
-            "stat": "0",
-            "text": "resumes forwarded without a completed technical review."
+            "stat": "Technical evaluation",
+            "text": "technical interviews conducted by specialists in the field for more than ten years."
           }
         }
       },
@@ -158,8 +155,8 @@
             "text": "replacement if a placement doesn't work out."
           },
           "h3": {
-            "stat": "94%",
-            "text": "customer satisfaction across completed placements."
+            "stat": "2%",
+            "text": "of companies reject the profiles sent by Talento."
           }
         }
       }
@@ -285,7 +282,7 @@
         "label": "Qualified\ncandidates"
       },
       "days": {
-        "value": "5",
+        "value": "3-5",
         "label": "Days for the\nfirst batch"
       }
     }

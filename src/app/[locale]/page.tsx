@@ -29,12 +29,12 @@ export default async function Home({
       <Hero />
       <StatsBand />
       <WhyUsMarquee />
+      <PricingSection />
       <FeatureShowcase />
       <ComparisonTable />
       <TestimonialsMarquee />
       <CompleteTeamSection />
       <FAQSection />
-      <PricingSection />
       <CTABand />
       <LogoGrid />
     </>
