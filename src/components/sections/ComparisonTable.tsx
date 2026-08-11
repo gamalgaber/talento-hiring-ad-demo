@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils";
 const ROW_META = [
   { key: "speed", talento: true, agencies: false, platforms: true },
   { key: "quality", talento: true, agencies: false, platforms: false },
-  { key: "guarantee", talento: true, agencies: false, platforms: false },
-  { key: "specialization", talento: true, agencies: false, platforms: true },
+  { key: "guarantee", talento: true, agencies: true, platforms: false },
+  { key: "specialization", talento: true, agencies: true, platforms: true },
 ] as const;
 
 function Mark({ ok }: { ok: boolean }) {
