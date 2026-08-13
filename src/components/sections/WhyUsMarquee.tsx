@@ -18,9 +18,9 @@ const CARD_KEYS = ["speed", "coverage", "culture", "noFees", "manager", "evaluat
 const CARD_IMGS: Record<(typeof CARD_KEYS)[number], string> = {
   speed: "/assets/images/Unmatched Speed.png",
   coverage: "/assets/images/Full Coverage Across the Middle East & North Africa.png",
-  culture: "/assets/images/prototype.jpg",
+  culture: "/assets/images/Cultural Fit.png",
   noFees: "/assets/images/No Upfront Fees.png",
-  manager: "/assets/images/prototype.jpg",
+  manager: "/assets/images/Dedicated Account Manager.png",
   evaluation: "/assets/images/Real Technical Assessment.png",
 };
 
