@@ -34,14 +34,16 @@ export default function CompleteTeamSection() {
     <section className="mx-auto max-w-7xl px-4 py-8 lg:py-16 sm:px-6">
       <div className="grid grid-cols-1 items-center gap-2 lg:gap-6 lg:grid-cols-2 border border-talento-border rounded-2xl shadow-sm">
         <Reveal className="p-3 lg:p-6">
-          <div className="relative overflow-hidden rounded-lg">
+          {/* aspect-[4/5] + fill (was intrinsic width/height + h-auto, which
+              just displayed the photo at its own flat ~1.52:1 ratio) — a
+              taller fixed box that the image crops to fill, per request. */}
+          <div className="relative aspect-square overflow-hidden rounded-lg">
             <Image
-              src="/assets/images/prototype.jpg"
+              src="/assets/images/A full technical team in one week.png"
               alt={t("badgeCompany")}
-              width={821}
-              height={541}
+              fill
               sizes="(min-width: 1024px) 640px, 100vw"
-              className="h-auto w-full object-cover"
+              className="object-cover"
             />
             {/* Desktop only: overlaid on the image, bottom-anchored. */}
             <div className="hidden md:grid absolute inset-x-4 bottom-4 grid-cols-3 gap-1.5">
