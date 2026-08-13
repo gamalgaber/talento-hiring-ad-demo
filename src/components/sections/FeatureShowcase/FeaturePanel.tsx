@@ -95,12 +95,12 @@ export default function FeaturePanel({
 
       <div className="flex min-h-full items-center justify-center px-6 pb-6 sm:px-8 lg:p-6">
         <Image
-          src="/assets/images/prototype.jpg"
+          src={theme.image}
           alt={t(`panels.${panelKey}.eyebrow`)}
           width={546}
           height={662}
           sizes="(min-width: 1024px) 640px, 90vw"
-          className="h-auto max-h-150 w-full max-w-full rounded-2xl"
+          className="h-auto max-h-150 w-full max-w-full rounded-lg"
         />
       </div>
     </div>

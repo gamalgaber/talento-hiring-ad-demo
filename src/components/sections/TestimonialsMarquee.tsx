@@ -11,6 +11,12 @@ import Image from "next/image";
 
 const TESTIMONIAL_KEYS = ["hatem", "abdulaziz", "khalid"] as const;
 
+const AVATAR_IMGS: Record<(typeof TESTIMONIAL_KEYS)[number], string> = {
+  hatem: "/assets/images/web-04.png",
+  abdulaziz: "/assets/images/web-05.png",
+  khalid: "/assets/images/web-06.png",
+};
+
 function TCard({
   name,
   avatar,
@@ -130,7 +136,7 @@ export default function TestimonialsMarquee() {
             {TESTIMONIAL_KEYS.map((key) => (
               <SwiperSlide key={key}>
                 <TCard
-                  avatar="/assets/images/avatar.avif"
+                  avatar={AVATAR_IMGS[key]}
                   name={t(`items.${key}.name`)}
                   role={t(`items.${key}.role`)}
                   company={t(`items.${key}.company`)}
@@ -165,7 +171,7 @@ export default function TestimonialsMarquee() {
                   {TESTIMONIAL_KEYS.map((key) => (
                     <TCard
                       key={`col${col}-${key}`}
-                      avatar="/assets/images/avatar.avif"
+                      avatar={AVATAR_IMGS[key]}
                       name={t(`items.${key}.name`)}
                       role={t(`items.${key}.role`)}
                       company={t(`items.${key}.company`)}

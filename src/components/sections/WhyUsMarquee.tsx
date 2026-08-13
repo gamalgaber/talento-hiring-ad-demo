@@ -10,6 +10,20 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const CARD_KEYS = ["speed", "coverage", "culture", "noFees", "manager", "evaluation"] as const;
 
+// Keyed by card, not positional — a positional array is one off-by-one typo
+// away from silently pairing the wrong image with the wrong card (which is
+// what was here: "No Upfront Fees.png" sat at index 2, landing on "culture"
+// instead of "noFees"). culture/manager have no uploaded image yet — falls
+// back to the shared placeholder until one's provided.
+const CARD_IMGS: Record<(typeof CARD_KEYS)[number], string> = {
+  speed: "/assets/images/Unmatched Speed.png",
+  coverage: "/assets/images/Full Coverage Across the Middle East & North Africa.png",
+  culture: "/assets/images/prototype.jpg",
+  noFees: "/assets/images/No Upfront Fees.png",
+  manager: "/assets/images/prototype.jpg",
+  evaluation: "/assets/images/Real Technical Assessment.png",
+};
+
 export default function WhyUsMarquee() {
   const t = useTranslations("whyUs");
 
@@ -46,7 +60,7 @@ export default function WhyUsMarquee() {
                   </div>
                   <div className="talento-why-card-bottom">
                     <Image
-                      src="/assets/images/prototype.jpg"
+                      src={CARD_IMGS[key]}
                       alt={t(`cards.${key}.title`)}
                       fill
                       sizes="500px"
