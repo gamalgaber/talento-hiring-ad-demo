@@ -8,18 +8,15 @@ import DriftWall from "../DriftWall";
 import Image from "next/image";
 
 const items = [
-  { image: 'https://picsum.photos/id/1015/600/400', title: 'Peaks' },
-  { image: 'https://picsum.photos/id/1025/600/400', title: 'Pup' },
-  { image: 'https://picsum.photos/id/1039/600/400', title: 'Falls' },
-  { image: 'https://picsum.photos/id/1015/600/400', title: 'Peaks' },
-  { image: 'https://picsum.photos/id/1025/600/400', title: 'Pup' },
-  { image: 'https://picsum.photos/id/1039/600/400', title: 'Falls' },
-  { image: 'https://picsum.photos/id/1015/600/400', title: 'Peaks' },
-  { image: 'https://picsum.photos/id/1025/600/400', title: 'Pup' },
-  { image: 'https://picsum.photos/id/1039/600/400', title: 'Falls' },
-  { image: 'https://picsum.photos/id/1015/600/400', title: 'Peaks' },
-  { image: 'https://picsum.photos/id/1025/600/400', title: 'Pup' },
-  { image: 'https://picsum.photos/id/1039/600/400', title: 'Falls' },
+  { image: '/assets/images/screen 1.png', title: 'screen 1' },
+  { image: '/assets/images/screen 2.png', title: 'screen 2' },
+  { image: '/assets/images/screen 3.png', title: 'screen 3' },
+  { image: '/assets/images/screen 1.png', title: 'screen 4' },
+  { image: '/assets/images/screen 2.png', title: 'screen 5' },
+  { image: '/assets/images/screen 3.png', title: 'screen 6' },
+  { image: '/assets/images/screen 1.png', title: 'screen 7' },
+  { image: '/assets/images/screen 2.png', title: 'screen 8' },
+  { image: '/assets/images/screen 3.png', title: 'screen 9' },
 ];
 
 export default function CTABand() {
@@ -51,7 +48,7 @@ export default function CTABand() {
             <DriftWall
               items={items}
               columns={4}
-              tileWidth={200}
+              tileWidth={240}
               tileHeight={198}
               gap={18}
               tilt={26}
@@ -65,7 +62,7 @@ export default function CTABand() {
               lift={64}
               fade={0.6}
               dim={0.55}
-              overlayColor="#000000"
+              overlayColor="rgba(0, 0, 0, 0.45)"
               radius={14}
               roll={0}
               pauseOnHover={false}
