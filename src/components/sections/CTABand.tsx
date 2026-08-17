@@ -17,6 +17,12 @@ const items = [
   { image: '/assets/images/screen 1.png', title: 'screen 7' },
   { image: '/assets/images/screen 2.png', title: 'screen 8' },
   { image: '/assets/images/screen 3.png', title: 'screen 9' },
+  { image: '/assets/images/screen 1.png', title: 'screen 10' },
+  { image: '/assets/images/screen 2.png', title: 'screen 11' },
+  { image: '/assets/images/screen 3.png', title: 'screen 12' },
+  { image: '/assets/images/screen 1.png', title: 'screen 13' },
+  { image: '/assets/images/screen 2.png', title: 'screen 14' },
+  { image: '/assets/images/screen 3.png', title: 'screen 15' },
 ];
 
 export default function CTABand() {
